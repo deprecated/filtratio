@@ -50,6 +50,7 @@ A wrapper around pysynphot.ObsBandpass
         return kji*self.Tm*self.Wj/self.Ti(emline)
   
 
+
 # Accurate rest wavelengths (Source: NIST)
 air_rest_wavelengths = {
     "H I 4340": 4340.47,
@@ -108,6 +109,7 @@ class Filterset(object):
         self.lineids = lineids
         self.emlines = [EmissionLine(lineid, velocity) for lineid in lineids]
         self.bandpasses = [Bandpass(longname) for longname in bpnames]
+        self._calculate_coefficients()
 
     def wavlimits(self):
         """Find suitable limits for plotting
@@ -119,14 +121,65 @@ class Filterset(object):
             wavmax = max(wavmax, bp.wav0 + bp.Wj)
         return wavmin - 100, wavmax + 100
 
+    def _calculate_coefficients(self):
+        I, II, III = self.bandpasses
+        e1, e2 = self.emlines
+        if e1.multiplicity == 1:
+            T1_I = I.Ti(e1)
+            T1_II = II.Ti(e1)
+            T1_III = III.Ti(e1)
+        else:
+            T1_I = np.sum(I.Ti(e1)*e1.intensity) / e1.intensity.sum()
+            T1_II = np.sum(II.Ti(e1)*e1.intensity) / e1.intensity.sum()
+            T1_III = np.sum(III.Ti(e1)*e1.intensity) / e1.intensity.sum()
+        if e2.multiplicity == 1:
+            T2_I = I.Ti(e2)
+            T2_II = II.Ti(e2)
+            T2_III = III.Ti(e2)
+        else:
+            T2_I = np.sum(I.Ti(e2)*e2.intensity) / e2.intensity.sum()
+            T2_II = np.sum(II.Ti(e2)*e2.intensity) / e2.intensity.sum()
+            T2_III = np.sum(III.Ti(e2)*e2.intensity) / e2.intensity.sum()
+
+        self.T2_T1 = T2_II / T1_I
+        self.alpha = (T1_III / T1_I, T2_III / T2_II)
+        self.beta = (I.Tm * I.Wj / (III.Tm * III.Wj),
+                     II.Tm * II.Wj / (III.Tm * III.Wj))
+        self.gamma = (T1_II / T1_I, T2_I / T2_II)
+        
+    def find_line_ratio(self, rates, colors=(1.0, 1.0), naive=False):
+        """Find the line ratio I1/I2 given the count rates in the three filters"""
+        R_I, R_II, R_III = rates
+        k_I, k_II = colors
+        e1, e2 = self.emlines
+        if naive:
+            ratio = R_I/R_II
+        else:
+            alpha_1, alpha_2 = self.alpha
+            beta_I, beta_II = self.beta
+            gamma_1, gamma_2 = self.gamma
+            ratio = (1.0 - alpha_2*beta_II*k_II)*R_I \
+                    + (alpha_2*beta_I*k_I - gamma_2)*R_II \
+                    + (gamma_2*beta_II*k_II - beta_I*k_I)*R_III
+            ratio /= (alpha_1*beta_II*k_II - gamma_1)*R_I \
+                     + (1.0 - alpha_1*beta_I*k_I)*R_II \
+                     + (gamma_1*beta_I*k_I - beta_II*k_II)*R_III 
+        ratio *= self.T2_T1 * e2.wave / e1.wave
+        return ratio
+            
 
 if __name__ == "__main__":
     from matplotlib import pyplot as plt
     
     filterset = Filterset(
         ["wfpc2,f658n", "wfpc2,f656n", "wfpc2,f547m"],
-        ["H I 6563", "[N II] 6583"]
+        ["[N II] 6583", "H I 6563"]
     )
+
+    print("alpha = ", filterset.alpha)
+    print("beta = ", filterset.beta)
+    print("gamma = ", filterset.gamma)
+
     for bp in filterset.bandpasses:
         plt.plot(bp.wave, bp.T, label=bp.longname)
     for emline in filterset.emlines:
