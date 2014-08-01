@@ -5,6 +5,8 @@ A python library to derive emission line ratios from count rates in HST filters
 
 Takes account of overlapping transmission curves and contamination by continuum and non-target lines. 
 
+![Schematic illustration of how the intensity ratio between two target lines is derived using observations in three filters.](images/filter-schematic.jpg)
+
 ### About the name
 
 [Nebulium](http://en.wikipedia.org/wiki/Nebulium) was a hypothetical chemical element, which was once believed to be responsible for strong green and blue emission lines seen in the spectra of astronomical nebulae.  However, it turned out that they were acually due to forbidden lines of singly ionized and doubly ionized oxygen. 
