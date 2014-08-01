@@ -71,7 +71,7 @@ if __name__ == "__main__":
     plt.legend(fontsize='small', loc='upper left')
     plt.xlabel("Vacuum wavelength, Angstrom")
     plt.ylabel("Filter throughput")
-    plt.savefig('test-filtratio.pdf')
+    plt.savefig('test-nebulium.pdf')
 
 
 
