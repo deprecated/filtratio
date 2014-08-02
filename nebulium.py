@@ -53,21 +53,21 @@ A wrapper around pysynphot.ObsBandpass
 
 # Accurate rest wavelengths (Source: NIST)
 air_rest_wavelengths = {
-    "H I 4340": 4340.47,
-    "[O III] 4363": 4363.21,
-    "H I 4861": 4861.63,
-    "[O III] 5007": np.array([5006.843, 4958.911, 4931.227]),
-    "[N II] 5755": 5755.08,
-    "H I 6563": 6562.79,
-    "[N II] 6583": np.array([6583.45, 6548.05, 6527.23]),
-    "[S II] 6716": 6716.44,
-    "[S II] 6731": 6730.816
+    "H I 4340": [4340.47],
+    "[O III] 4363": [4363.21],
+    "H I 4861": [4861.63],
+    "[O III] 5007": [5006.843, 4958.911, 4931.227],
+    "[N II] 5755": [5755.08],
+    "H I 6563": [6562.79],
+    "[N II] 6583": [6583.45, 6548.05, 6527.23],
+    "[S II] 6716": [6716.44],
+    "[S II] 6731": [6730.816]
 }
 
 # Source: NIST
 multiplet_strengths = {
-    "[O III] 5007": np.array([2.918, 1.0, 3.88e-4]),
-    "[N II] 6583": np.array([2.963, 1.0, 5.33e-4]),
+    "[O III] 5007": [2.918, 1.0, 3.88e-4],
+    "[N II] 6583": [2.963, 1.0, 5.33e-4],
 }
 
 def _split_ids(lineid):
@@ -80,15 +80,11 @@ class EmissionLine(object):
         self.lineid = lineid
         self.species, self.wavid = _split_ids(lineid)
         # Rest wavelength(s) in air
-        self.wav0_air = air_rest_wavelengths.get(lineid, float(self.wavid))
-        try: 
-            self.multiplicity = len(self.wav0_air)
-            self.intensity = multiplet_strengths.get(lineid,
-                                                     np.ones_like(self.wav0_air))
-        except TypeError:
-            # If scalar then it is a single component
-            self.multiplicity = 1
-            self.intensity = 1.0
+        self.wav0_air = np.array(
+            air_rest_wavelengths.get(lineid, [float(self.wavid)]))
+        self.multiplicity = len(self.wav0_air)
+        self.intensity = np.array(
+            multiplet_strengths.get(lineid, np.ones_like(self.wav0_air)))
         # Rest wavelength in vacuum
         self.wav0 = self.wav0_air * AIR_REFRACTIVE_INDEX
         # Topocentric velocity
@@ -124,22 +120,12 @@ class Filterset(object):
     def _calculate_coefficients(self):
         I, II, III = self.bandpasses
         e1, e2 = self.emlines
-        if e1.multiplicity == 1:
-            T1_I = I.Ti(e1)
-            T1_II = II.Ti(e1)
-            T1_III = III.Ti(e1)
-        else:
-            T1_I = np.sum(I.Ti(e1)*e1.intensity) / e1.intensity.sum()
-            T1_II = np.sum(II.Ti(e1)*e1.intensity) / e1.intensity.sum()
-            T1_III = np.sum(III.Ti(e1)*e1.intensity) / e1.intensity.sum()
-        if e2.multiplicity == 1:
-            T2_I = I.Ti(e2)
-            T2_II = II.Ti(e2)
-            T2_III = III.Ti(e2)
-        else:
-            T2_I = np.sum(I.Ti(e2)*e2.intensity) / e2.intensity.sum()
-            T2_II = np.sum(II.Ti(e2)*e2.intensity) / e2.intensity.sum()
-            T2_III = np.sum(III.Ti(e2)*e2.intensity) / e2.intensity.sum()
+        T1_I = np.sum(I.Ti(e1)*e1.intensity) / e1.intensity[0]
+        T1_II = np.sum(II.Ti(e1)*e1.intensity) / e1.intensity[0]
+        T1_III = np.sum(III.Ti(e1)*e1.intensity) / e1.intensity[0]
+        T2_I = np.sum(I.Ti(e2)*e2.intensity) / e2.intensity[0]
+        T2_II = np.sum(II.Ti(e2)*e2.intensity) / e2.intensity[0]
+        T2_III = np.sum(III.Ti(e2)*e2.intensity) / e2.intensity[0]
 
         self.T2_T1 = T2_II / T1_I
         self.alpha = (T1_III / T1_I, T2_III / T2_II)
@@ -164,7 +150,7 @@ class Filterset(object):
             ratio /= (alpha_1*beta_II*k_II - gamma_1)*R_I \
                      + (1.0 - alpha_1*beta_I*k_I)*R_II \
                      + (gamma_1*beta_I*k_I - beta_II*k_II)*R_III 
-        ratio *= self.T2_T1 * e2.wave / e1.wave
+        ratio *= self.T2_T1 * e2.wave[0] / e1.wave[0]
         return ratio
             
 
@@ -176,9 +162,15 @@ if __name__ == "__main__":
         ["[N II] 6583", "H I 6563"]
     )
 
-    print("alpha = ", filterset.alpha)
-    print("beta = ", filterset.beta)
-    print("gamma = ", filterset.gamma)
+    print("T2/T1 =", filterset.T2_T1)
+    print("alpha =", filterset.alpha)
+    print("beta =", filterset.beta)
+    print("gamma =", filterset.gamma)
+
+    rates = [280.1/500, 610.6/200, 32.6/50]
+
+    print("I_1 / I_2 =", filterset.find_line_ratio(rates))
+    print("Naive I_1 / I_2 =", filterset.find_line_ratio(rates, naive=True))
 
     for bp in filterset.bandpasses:
         plt.plot(bp.wave, bp.T, label=bp.longname)
