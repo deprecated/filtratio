@@ -187,7 +187,7 @@ if __name__ == "__main__":
     plt.ylabel("Filter throughput")
     plt.gcf().set_size_inches(8,4)
     plt.gcf().tight_layout()
-    plt.savefig('test-nebulium.pdf')
+    plt.savefig('test-nebulio.pdf')
 
 
 
