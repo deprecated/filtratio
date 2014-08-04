@@ -1,17 +1,30 @@
 from __future__ import print_function
 
+"""A set of filters that is used to determine an emission line ratio
+"""
+
 import numpy as np
 import pysynphot
 
-AIR_REFRACTIVE_INDEX = 1.000277 # @STP according to Wikipedia
-LIGHTSPEED = 2.99792458e5       # c in km/s
+AIR_REFRACTIVE_INDEX = 1.000277  # @STP according to Wikipedia
+LIGHTSPEED = 2.99792458e5        # c in km/s
+
 
 class Bandpass(object):
     """A combination of telescope, instrument, camera/channel/ccd, filter
 
-A wrapper around pysynphot.ObsBandpass
+    The Bandpass class is a wrapper around :class:`pysynphot.ObsBandpass` and
+    encapsulates the total throughput of an instrument.
+
+    Parameters
+    ----------
+    longname : str
+               A string giving a comma-separated list of instrument,
+               [channel,] and filter, which is passed directly to
+               :class:`pysynphot.ObsBandpass`
+
     """
-    
+
     # Line transmission adjustments (determined by in-flight calibration)
     T_adjustments = {}
 
@@ -36,9 +49,15 @@ A wrapper around pysynphot.ObsBandpass
         self.Wj = np.trapz(self.T, self.wave)/self.Tm
         # Central wavelength of filter
         self.wav0 = self._synphot_bp.pivot()
-      
+
     def Ti(self, emline):
-        "Filter transmission at wavelength of line i (emline)"
+        """Filter transmission at the wavelength of an emission line
+
+        Parameters
+        ----------
+        emline : :class:`EmissionLine`
+
+        """
         correction = self.T_adjustments.get((emline.wavid, self.longname), 1.0)
         return correction*np.interp(emline.wave, self.wave, self.T)
 
@@ -48,7 +67,6 @@ A wrapper around pysynphot.ObsBandpass
         And with color correction kji
         """
         return kji*self.Tm*self.Wj/self.Ti(emline)
-  
 
 
 # Accurate rest wavelengths (Source: NIST)
@@ -70,12 +88,15 @@ multiplet_strengths = {
     "[N II] 6583": [2.963, 1.0, 5.33e-4],
 }
 
+
 def _split_ids(lineid):
     pieces = lineid.split()
     return ' '.join(pieces[:-1]), pieces[-1]
 
+
 class EmissionLine(object):
     velocity = 0.0
+
     def __init__(self, lineid, velocity=None):
         self.lineid = lineid
         self.species, self.wavid = _split_ids(lineid)
@@ -93,7 +114,7 @@ class EmissionLine(object):
             self.velocity = self.__class__.velocity
         # Observed wavelength in vacuum
         self.wave = self.wav0 * (1.0 + self.velocity/LIGHTSPEED)
-        
+
 
 class Filterset(object):
     """A set of three emission line filters for measuring a line ratio"""
@@ -132,13 +153,14 @@ class Filterset(object):
         self.beta = (I.Tm * I.Wj / (III.Tm * III.Wj),
                      II.Tm * II.Wj / (III.Tm * III.Wj))
         self.gamma = (T1_II / T1_I, T2_I / T2_II)
-        
+
     def find_line_ratio(self, rates, colors=(1.0, 1.0), naive=False):
         """Find the line ratio I1/I2 given the count *rates* in the three filters
 
         :param list rates: Count rates in each of the three filters
         :param tuple colors: 2-tuple of k-twiddle for filters I and II
-        :para bool naive: if ``True`` then ignore all contamination terms: alpha, beta, gamma = 0
+        :para bool naive: if ``True`` then ignore all contamination
+        terms: alpha, beta, gamma = 0
         :rtype: float
 
         """
@@ -151,19 +173,19 @@ class Filterset(object):
             alpha_1, alpha_2 = self.alpha
             beta_I, beta_II = self.beta
             gamma_1, gamma_2 = self.gamma
-            ratio = (1.0 - alpha_2*beta_II*k_II)*R_I \
-                    + (alpha_2*beta_I*k_I - gamma_2)*R_II \
-                    + (gamma_2*beta_II*k_II - beta_I*k_I)*R_III
-            ratio /= (alpha_1*beta_II*k_II - gamma_1)*R_I \
-                     + (1.0 - alpha_1*beta_I*k_I)*R_II \
-                     + (gamma_1*beta_I*k_I - beta_II*k_II)*R_III 
+            ratio = ((1.0 - alpha_2*beta_II*k_II)*R_I
+                     + (alpha_2*beta_I*k_I - gamma_2)*R_II
+                     + (gamma_2*beta_II*k_II - beta_I*k_I)*R_III)
+            ratio /= ((alpha_1*beta_II*k_II - gamma_1)*R_I
+                      + (1.0 - alpha_1*beta_I*k_I)*R_II
+                      + (gamma_1*beta_I*k_I - beta_II*k_II)*R_III)
         ratio *= self.T2_T1 * e2.wave[0] / e1.wave[0]
         return ratio
-            
+
 
 if __name__ == "__main__":
     from matplotlib import pyplot as plt
-    
+
     filterset = Filterset(
         ["wfpc2,f658n", "wfpc2,f656n", "wfpc2,f547m"],
         ["[N II] 6583", "H I 6563"]
@@ -192,11 +214,6 @@ if __name__ == "__main__":
     plt.legend(fontsize='small', loc='upper left')
     plt.xlabel("Vacuum wavelength, Angstrom")
     plt.ylabel("Filter throughput")
-    plt.gcf().set_size_inches(8,4)
+    plt.gcf().set_size_inches(8, 4)
     plt.gcf().tight_layout()
     plt.savefig('test-nebulio.pdf')
-
-
-
-
-    
