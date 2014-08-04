@@ -1,0 +1,84 @@
+Notes on implementation of =nebulio= python package.
+
+* Implementation of Documentation
+:LOGBOOK:
+- Note taken on [2014-08-04 Mon 13:06] \\
+  This is all new to me and is causing some pain
+CLOCK: [2014-08-04 Mon 11:14]--[2014-08-04 Mon 13:06] =>  1:52
+:END:
++ I am going to try and use sphinx and autodoc
+  + Most of the documentation will be extracted automatically from docstrings in the source files.
+  + I am also going to try and follow the way that numpy does things
+    + It is a more verbose style that looks better in plain text than the standard sphinx style
+    + It requires the use of =numpydoc=
+    + [[http://stackoverflow.com/questions/17397483/how-does-numpy-process-docstrings-into-sphinx-documentation-for-parameters][stackoverflow answer]] explaining how to use numpydoc
+    + [[https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt][Guide]] to NumPy/SciPy Documentation
+    + [[https://github.com/numpy/numpy/blob/master/doc/example.py][Example ]]source file
+    + Jeff Knup's [[http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/][instructions]] on how to use autodoc
+** TODO [1/5] Subtasks towards getting the docs sorted
+:LOGBOOK:
+CLOCK: [2014-08-04 Mon 13:06]
+:END:
++ [X] Get basic sphinx autodoc functionality working
++ [-] Convert all module/class/function doc strings to numpydoc format
++ [ ] Add any necessary documentation outside of source code
++ [ ] Choose a nice style
++ [ ] Export to readthedocs?
+** Log of steps for autogenerating the docs
+Installing prerequisites
+#+BEGIN_SRC sh
+source activate py27
+conda install numpydoc
+#+END_SRC
+
+Install package in dev mode
+#+BEGIN_SRC sh
+python setup.py develop
+#+END_SRC
+
+Running autodoc
+#+BEGIN_SRC sh
+sphinx-apidoc -F -o docs nebulio
+#+END_SRC
+
+Edit =docs/conf.py= to include
+#+BEGIN_SRC python
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'numpydoc']
+#+END_SRC
+
+And add the following to automagically set the =release= and =version= vars.  This is copied from Jeff Knupp's sandman package. 
+
+#+BEGIN_SRC python
+import pkg_resources
+try:
+    release = pkg_resources.get_distribution('nebulio').version
+except pkg_resources.DistributionNotFound:
+    print ('To build the documentation, The distribution information of sandman') 
+    print ('Has to be available.  Either install the package into your'         ) 
+    print ('development environment or run "setup.py develop" to setup the'     ) 
+    print ('metadata.  A virtualenv is recommended!'                            ) 
+    sys.exit(1)
+del pkg_resources
+
+version = '.'.join(release.split('.')[:2])
+#+END_SRC
+
+Change the html theme
+#+BEGIN_SRC python
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+html_theme = 'nature'
+#+END_SRC
+
+Compile and view the HTML documentation
+#+BEGIN_SRC sh
+(cd docs; make html)
+open docs/_build/html/index.html
+#+END_SRC
+
+Compile and view the PDF documentation
+#+BEGIN_SRC sh
+(cd docs; make latexpdf)
+open docs/_build/latex/nebulio.pdf
+#+END_SRC
+

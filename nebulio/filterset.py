@@ -134,7 +134,14 @@ class Filterset(object):
         self.gamma = (T1_II / T1_I, T2_I / T2_II)
         
     def find_line_ratio(self, rates, colors=(1.0, 1.0), naive=False):
-        """Find the line ratio I1/I2 given the count rates in the three filters"""
+        """Find the line ratio I1/I2 given the count *rates* in the three filters
+
+        :param list rates: Count rates in each of the three filters
+        :param tuple colors: 2-tuple of k-twiddle for filters I and II
+        :para bool naive: if ``True`` then ignore all contamination terms: alpha, beta, gamma = 0
+        :rtype: float
+
+        """
         R_I, R_II, R_III = rates
         k_I, k_II = colors
         e1, e2 = self.emlines
