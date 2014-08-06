@@ -1,5 +1,22 @@
 Notes on implementation of =nebulio= python package.
 
+* Interface with pysynphot
+
+** Useful documentation
++ http://stsdas.stsci.edu/pysynphot/
+  + [[http://www.stsci.edu/hst/HST_overview/documents/synphot/hst_synphot_cover.html][(py)SYNPHOT Data User's Guide (2008)]]
+
+
+** TODO Electrons vs counts
++ Some instruments use counts/s
++ Others (e.g., ACS) use electrons/s
+  
+** TODO How to access the instrument-dependent normalization
++ This is important when using a filterset that combines, e.g., ACS
+  and WFPC2 observations
++ I think, this is is just the the pixel area
++ Everything else is already folded into the bandpass throughput I think
+
 * Implementation of Documentation
 :LOGBOOK:
 - Note taken on [2014-08-04 Mon 13:06] \\
