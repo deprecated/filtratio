@@ -32,7 +32,7 @@ CLOCK: [2014-08-04 Mon 11:14]--[2014-08-04 Mon 13:06] =>  1:52
     + [[https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt][Guide]] to NumPy/SciPy Documentation
     + [[https://github.com/numpy/numpy/blob/master/doc/example.py][Example ]]source file
     + Jeff Knup's [[http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/][instructions]] on how to use autodoc
-** TODO [1/5] Subtasks towards getting the docs sorted
+** TODO [1/6] Subtasks towards getting the docs sorted
 :LOGBOOK:
 CLOCK: [2014-08-04 Mon 13:43]
 CLOCK: [2014-08-04 Mon 13:06]--[2014-08-04 Mon 13:43] =>  0:37
@@ -40,7 +40,15 @@ CLOCK: [2014-08-04 Mon 13:06]--[2014-08-04 Mon 13:43] =>  0:37
 + [X] Get basic sphinx autodoc functionality working
 + [-] Convert all module/class/function doc strings to numpydoc format
 + [ ] Add any necessary documentation outside of source code
++ [ ] Import the astropy doc config
+  + This gives a whole load of new RST directives that look useful
+  + This didn't work on a first attempt - missing icons
+  + But I don't really want to use their icons
+    + [ ] I should make my own
+  + Also, astropy 0.4 have these inside astropy package, but the dev
+  version has moved them to astropy_helpers package
 + [ ] Choose a nice style
+  + [ ] Switch to the astropy style?
 + [ ] Export to readthedocs?
 ** Log of steps for autogenerating the docs
 Installing prerequisites
