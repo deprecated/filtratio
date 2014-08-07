@@ -1,4 +1,39 @@
+#+SEQ_TODO: TODO(t) STARTED(s) WAITING(w@) | DONE(d) CANCELED(c@)
+#+OPTIONS: ^:{}   
 Notes on implementation of =nebulio= python package.
+
+
+* Roadmap for nebulio
+
+** STARTED Version 0.1
+
+*** DONE Basic functionality with homogeneous filterset
+CLOSED: [2014-08-06 Wed 13:35]
++ All filters with the same instrument: wfpc2, acs, or wfc3
+
+*** Allow mixing of different instruments
+
+*** Write some tests
++ use py.test
++ Useful docs:
+  + [[http://astropy.readthedocs.org/en/latest/development/testguide.html][Astropy testing guidelines]]
+  + 
+** Future plans
+*** Greater variety of synphot observation modes
+* [4/7] Project Management Scaffolding
+I am implementing most of Jeff Knupp's [[http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/][recommendations]] for project
+  management:
+- [X] YES: setuptools
+- [X] YES: git/github
+- [X] NO: git-flow - my package just seems too small to bother with that yet
+- [ ] SORT-OF: virtualenv - I'm using anaconda
+  - Still need to make a virtual environment
+- [-] YES py.test
+  - at least, I intend to
+- [X] YES sphinx
+- [ ] MAYBE ReadTheDocs
+  - once I have the docs in better shape
+
 
 * Interface with pysynphot
 
