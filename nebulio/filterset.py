@@ -19,27 +19,34 @@ class Bandpass(object):
 
     Parameters
     ----------
-    longname : str
-               A string giving a comma-separated list of instrument,
-               [channel,] and filter, which is passed directly to
-               :class:`pysynphot.ObsBandpass`
+    obsmode : str
+              A string giving a comma-separated list of instrument,
+              [channel,] and filter, which is passed directly to
+              :class:`pysynphot.ObsBandpass`
+
+    Notes
+    -----
+    The `obsmode` parameter does not support all possible synphot [1]
+    observation modes yet.   Only INSTRUMENT,CHANNEL,FILTER  (e.g.,
+    'wfc3,uvis1,f547m') or INSTRUMENT,FILTER (e.g., 'wfpc2,f658n') are
+    supported.
 
     """
 
     # Line transmission adjustments (determined by in-flight calibration)
     T_adjustments = {}
 
-    def __init__(self, longname='wfc3,uvis1,f547m'):
-        self.longname = longname
+    def __init__(self, obsmode='wfc3,uvis1,f547m'):
+        self.obsmode = obsmode
         try:
             # Cases such as acs,wfc1,f658n
-            self.instrument, self.channel, self.fname = longname.split(',')
+            self.instrument, self.channel, self.fname = obsmode.split(',')
         except ValueError:
             # Cases such as wfpc2,f502n
-            self.instrument, self.fname = longname.split(',')
+            self.instrument, self.fname = obsmode.split(',')
             self.channel = None
         # Delegate all the hard work to pysynphot
-        self._synphot_bp = pysynphot.ObsBandpass(longname)
+        self._synphot_bp = pysynphot.ObsBandpass(obsmode)
         # Wavelength array
         self.wave = self._synphot_bp.wave
         # Transmission throughput curve array
@@ -59,7 +66,7 @@ class Bandpass(object):
         emline : :class:`EmissionLine`
 
         """
-        correction = self.T_adjustments.get((emline.wavid, self.longname), 1.0)
+        correction = self.T_adjustments.get((emline.wavid, self.obsmode), 1.0)
         return correction*np.interp(emline.wave, self.wave, self.T)
 
     def Wtwid(self, emline, kji=1.0):
@@ -203,7 +210,7 @@ if __name__ == "__main__":
     print("Naive I_1 / I_2 =", filterset.find_line_ratio(rates, naive=True))
 
     for bp in filterset.bandpasses:
-        plt.plot(bp.wave, bp.T, label=bp.longname)
+        plt.plot(bp.wave, bp.T, label=bp.obsmode)
     for emline in filterset.emlines:
         if emline.multiplicity > 1:
             for wav, strength in zip(emline.wave, emline.intensity):
