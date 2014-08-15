@@ -21,42 +21,7 @@ CLOCK: [2014-08-13 Wed 12:19]--[2014-08-13 Wed 13:04] =>  0:45
 + Useful docs:
   + [[http://astropy.readthedocs.org/en/latest/development/testguide.html][Astropy testing guidelines]]
   + [[http://pytest.org/latest/getting-started.html][py.test docs]]
-**** DONE How to run the tests
-CLOSED: [2014-08-14 Thu 22:52]
-:LOGBOOK:
-CLOCK: [2014-08-14 Thu 17:57]--[2014-08-14 Thu 22:52] =>  4:55
-:END:
-#+BEGIN_SRC sh
-python setup.py test
-#+END_SRC
-And that's it. (Do need to be in right virtual env, or at least set the path to python.)
-***** [2/2] Older notes 
-+ Rule #1 :: Don't try just running them in the tests/ folder
-  + This can give on Python 3
-    #+BEGIN_EXAMPLE
-    SystemError: Parent module '' not loaded, cannot perform relative import
-    #+END_EXAMPLE
-  + Or on Python 2
-    #+BEGIN_EXAMPLE
-    ValueError: Attempted relative import in non-package
-    #+END_EXAMPLE
-  + So the problem is partly that I was trying to use relative imports, which is rather tricky
-+ Rule #2 :: We can run the tests by hand using something like
-  #+BEGIN_SRC sh
-  ~/anaconda/envs/py27/bin/python -m nebulio.tests.test_synphot
-  #+END_SRC
-  + But this relies on there being a main script in the test file, which we really want to avoid, so I have now removed it
-  + *Meaning this method doesn't work any more* 
-+ [X] Rule #3 :: We can run py.test semi-automatically like this
-  #+BEGIN_EXAMPLE
-  (py27)iris:Nebulio will$ py.test
-  #+END_EXAMPLE
-  Note that we have to be in the right virtual environment, since this package does not work with python 3
-+ [X] Rule #4 :: Finally, we should also be able to run it like this
-  #+BEGIN_SRC sh
-  python setup.py test
-  #+END_SRC
-  + This requires some stuff in =setup.py= but that is all sorted now. 
+**** Testing versus the old 
 
 ** Future plans
 *** Greater variety of synphot observation modes
@@ -103,6 +68,78 @@ CLOCK: [2014-08-13 Wed 10:30]--[2014-08-13 Wed 10:50] =>  0:20
   and WFPC2 observations
 + I think, this is is just the the pixel area
 + Everything else is already folded into the bandpass throughput I think
+
+
+* DONE Making sure we are up to date with CDBS
+CLOSED: [2014-08-15 Fri 14:47]
+:LOGBOOK:
+CLOCK: [2014-08-15 Fri 13:37]--[2014-08-15 Fri 14:47] =>  1:10
+:END:
++ We seem to have an old version of CDBS
++ Up to date files are here: ftp.stsci.edu/cdbs/
+  + I am downloading [[http://www.stsci.edu/ftp/cdbs/tarfiles/synphot1.tar.gz][synphot1.tar.gz]], which I think is all we need.
++ Yep, now installed in =~/Work/CDBS=
++ Other data files are not here yet - synphot5 is taking for ever
++ [ ] How are we going to keep up to date with these files in the future
+
+* Implementation of the tests
+** DONE How to run the tests
+CLOSED: [2014-08-14 Thu 22:52]
+:LOGBOOK:
+CLOCK: [2014-08-14 Thu 17:57]--[2014-08-14 Thu 22:52] =>  4:55
+:END:
+#+BEGIN_SRC sh
+python setup.py test
+#+END_SRC
+And that's it. (Do need to be in right virtual env, or at least set the path to python.)
+*** [2/2] Older notes 
++ Rule #1 :: Don't try just running them in the tests/ folder
+  + This can give on Python 3
+    #+BEGIN_EXAMPLE
+    SystemError: Parent module '' not loaded, cannot perform relative import
+    #+END_EXAMPLE
+  + Or on Python 2
+    #+BEGIN_EXAMPLE
+    ValueError: Attempted relative import in non-package
+    #+END_EXAMPLE
+  + So the problem is partly that I was trying to use relative imports, which is rather tricky
++ Rule #2 :: We can run the tests by hand using something like
+  #+BEGIN_SRC sh
+  ~/anaconda/envs/py27/bin/python -m nebulio.tests.test_synphot
+  #+END_SRC
+  + But this relies on there being a main script in the test file, which we really want to avoid, so I have now removed it
+  + *Meaning this method doesn't work any more* 
++ [X] Rule #3 :: We can run py.test semi-automatically like this
+  #+BEGIN_EXAMPLE
+  (py27)iris:Nebulio will$ py.test
+  #+END_EXAMPLE
+  Note that we have to be in the right virtual environment, since this package does not work with python 3
++ [X] Rule #4 :: Finally, we should also be able to run it like this
+  #+BEGIN_SRC sh
+  python setup.py test
+  #+END_SRC
+  + This requires some stuff in =setup.py= but that is all sorted now.
+** TODO [0/4] More sophisticated tests
++ [ ] Make sure there is only one assert per function
++ [ ] Learn how to use fixtures
+  + also [[http://pytest.org/latest/yieldfixture.html#yieldfixture][yield fixture mechanism]]
++ [ ] Learn how to use parameterized tests
++ [ ] Time the tests
+
+** STARTED [2/3] Testing wfc3_utils
+:LOGBOOK:
+- State "WAITING"    from ""           [2014-08-15 Fri 13:38] \\
+  Need to update the CDBS database first
+:END:
++ This is installed as legacy/wfc3_utils.py
++ I changed it to use setuptools =pkg_resources.resource_stream= for
+  opening the data files
+  + This means it should still work when it is installed inside an egg
+  + See [[https://pythonhosted.org/setuptools/pkg_resources.html][here]] and [[http://peak.telecommunity.com/DevCenter/PythonEggs#accessing-package-resources][here]]
++ [X] Test that the tests work
++ [X] Test that the filter parameters agree
++ [ ] Test that the alpha, beta, gamma agree
+
 
 * Implementation of Documentation
 :LOGBOOK:
