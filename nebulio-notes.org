@@ -20,12 +20,17 @@ CLOCK: [2014-08-13 Wed 12:19]--[2014-08-13 Wed 13:04] =>  0:45
 + use py.test
 + Useful docs:
   + [[http://astropy.readthedocs.org/en/latest/development/testguide.html][Astropy testing guidelines]]
-  +
-**** DONE [2/2] How to run the tests
+  + [[http://pytest.org/latest/getting-started.html][py.test docs]]
+**** DONE How to run the tests
 CLOSED: [2014-08-14 Thu 22:52]
 :LOGBOOK:
 CLOCK: [2014-08-14 Thu 17:57]--[2014-08-14 Thu 22:52] =>  4:55
 :END:
+#+BEGIN_SRC sh
+python setup.py test
+#+END_SRC
+And that's it. (Do need to be in right virtual env, or at least set the path to python.)
+***** [2/2] Older notes 
 + Rule #1 :: Don't try just running them in the tests/ folder
   + This can give on Python 3
     #+BEGIN_EXAMPLE
@@ -55,7 +60,7 @@ CLOCK: [2014-08-14 Thu 17:57]--[2014-08-14 Thu 22:52] =>  4:55
 
 ** Future plans
 *** Greater variety of synphot observation modes
-* [5/8] Project Management Scaffolding
+* [6/8] Project Management Scaffolding
 :LOGBOOK:
 CLOCK: [2014-08-13 Wed 13:04]--[2014-08-13 Wed 17:57] =>  4:53
 :END:
@@ -71,9 +76,12 @@ I am implementing most of Jeff Knupp's [[http://www.jeffknupp.com/blog/2013/08/1
 - [X] YES sphinx
 - [ ] MAYBE ReadTheDocs
   - once I have the docs in better shape
-- [ ] sort out relative imports
-  - AAARGH!
-  - [ ] try to follow recommendations [[http://guide.python-distribute.org/creation.html][here]]
+- [X] sort out imports
+  - No relative imports any more 
+    - AAARGH!
+    - try to follow recommendations [[http://guide.python-distribute.org/creation.html][here]] (now that I look at it again, it has nothing to say about imports ...)
+  - [X] Use absolute imports instead?
+    - That's what [[http://blog.habnab.it/blog/2013/07/21/python-packages-and-you/][this page]] recommends
 
 
 * Interface with pysynphot

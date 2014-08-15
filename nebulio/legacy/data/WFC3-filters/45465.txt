@@ -1,0 +1,85 @@
+#Bowtie reported in: 45645		    
+ ------------------
+			when the 1st bowtie appears in the SMS? 6
+			1st image in the SMS:  focus scan                  
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1 |write 1 if a bowtie is visible
+			chip2		1 |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+45399:414     10.0 U F625W  B     UV14 200x200@1044,2864         16 pt OS focus scan      
+45415:30      10.0 U F625W  C     UV15 200x200@2818,1064         16 pt OS focus scan 
+45431:46      10.0 U F625W  A     UV16 200x200@1052,1064         16 pt OS focus scan
+45447:62      10.0 U F625W  D     UV13 200x200@2820,2866         16 pt OS focus scan
+45463          0.0 U NONE   ABCD  bias db=75     
+45464          0.0 U NONE   ABCD  bias db=75     
+45465        600.0 U NONE   ABCD  dark db=75                     
+ 
+ 
+#Preceding images
+ ----------------
+ Impossible to say anything about focus scan images
+ 
+#Following images
+ ----------------
+ 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 1
+ lamp problems btb? 1 
+ manual images btb? 1
+ castle/calsystem change btb? 0
+ bias btb? 1
+ dark btb? 0
+ grism flats btb? 0
+ temperature change btb? 0
+ CCD side changed btb? 0
+ amplifier change btb? 1
+ restart of a previous SMS? 0
+ filters used in the series F625W	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+  45447 IUA1J31G  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_1  NONE       F625W                0	   20.11   293.26    
+  45448 IUA1J31H  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_2  NONE       F625W                0	   20.11   293.26    
+  45449 IUA1J31I  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_3  NONE       F625W                0	   20.19   293.34    
+  45450 IUA1J31J  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_4  NONE       F625W                0	   20.19   293.34    
+  45451 IUA1J31K  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_5  NONE       F625W                0	   20.11   293.26    
+  45452 IUA1J31L  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.763 OS         CSII08009030838_6  NONE       F625W                0	   20.11   293.26    
+  45453 IUA1J31M  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_7  NONE       F625W                0	   20.11   293.26    
+  45454 IUA1J31N  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_8  NONE       F625W                0	   20.11   293.26    
+  45455 IUA1J31O  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_9  NONE       F625W                0	   20.19   293.34    
+  45456 IUA1J31P  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.142 OS         CSII08009030838_10 NONE       F625W                0	   20.11   293.26    
+  45457 IUA1J31Q  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.763 OS         CSII08009030838_11 NONE       F625W                0	   20.11   293.26    
+  45458 IUA1J31R  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_12 NONE       F625W                0	   20.11   293.26    
+  45459 IUA1J31S  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.763 OS         CSII08009030838_13 NONE       F625W                0	   20.11   293.26    
+  45460 IUA1J31T  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_14 NONE       F625W                0	   20.19   293.34    
+  45461 IUA1J31U  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.556 OS         CSII08009030838_15 NONE       F625W                0	   20.19   293.34    
+  45462 IUA1J31V  UVIS UVIS-1   normal   D     1.5   1   1 MEB2    10.0 UV13                   -127.349 OS         CSII08009030838_16 NONE       F625W                0	   20.11   293.26    
+  45463 IAAABBCC  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB2     0.0 UV13                   -127.349 OS         CSII08009032115_1  NONE       NONE                 0	   20.19   293.34    
+  45464 IAAABB00  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB2     0.0 UV13                   -127.349 OS         CSII08009032949_1  NONE       NONE                 0	   20.19   293.34    
+ *45465 IAAABBCC  UVIS UVIS-1   dark     ABCD  1.5   1   1 MEB2   600.0 UV13                   -127.556 OS         CSII08009040146_1  NONE       NONE                 0	   20.19   293.34    
+   
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

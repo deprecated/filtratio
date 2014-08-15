@@ -1,0 +1,79 @@
+#Bowtie reported in: 49147	    
+ ------------------
+			when the 1st bowtie appears in the SMS? 2
+			1st image in the SMS: bias                   
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1 |write 1 if a bowtie is visible
+			chip2		1 |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+49146          0.0 U NONE   ABCD  bias                            med=      0, min=    -12, max=   2380
+49147        195.0 U F275W  ABCD  D2ARC1 FLAT                     med=  25427, min=    -19, max=  42971
+49148        600.0 U F218W  ABCD  D2ARC1 FLAT                     med=  25511, min=    -19, max=  45464
+49149        200.0 U F225W  ABCD  D2ARC1 FLAT                     med=  23844, min=    -19, max=  44991
+49150       1980.0 U F280N  ABCD  D2ARC1 FLAT                     med=  12926, min=    -14, max=  45314
+49151       1980.0 U F280N  ABCD  D2ARC1 FLAT                     med=  12874, min=    -14, max=  44304
+ 
+ 
+#Preceding images
+ ----------------
+ No obvious problems in the bias 
+ Bowties in the preceeding SMS (see 49141.txt)
+ 
+#Following images
+ ----------------
+ 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 0 
+ lamp problems btb? 1
+ manual images btb? 0
+ castle/calsystem change btb? 0
+ bias btb? 1
+ dark btb? 0
+ grism flats btb? 0
+ temperature change btb? 0
+ CCD side changed btb? 0
+ amplifier change btb? 0
+ restart of a previous SMS? 1
+ filters used in the series F275W	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+  49140 IU201A01  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB1     0.0 FLAT                   -49.3939 OS         CSII08055053239_1  NONE       NONE                 0	   19.35   292.50    
+ *49141 IU201A02  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   195.0 FLAT                   -49.1919 OS         CSII08055054437_1  NONE       F275W                0	   19.44   292.59    
+  49142 IU201A03  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   600.0 FLAT                   -49.3939 OS         CSII08055054437_2  NONE       F218W                0	   19.35   292.50    
+  49143 IU201A06  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   200.0 FLAT                   -49.1919 OS         CSII08055060210_1  NONE       F225W                0	   19.44   292.59    
+  49144 IU201A07  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.1919 OS         CSII08055063742_1  NONE       F280N                0	   19.44   292.59    
+  49145 IU201A09  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.1919 OS         CSII08055071345_1  NONE       F280N                0	   19.44   292.59    
+
+  49146 IU201A01  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB1     0.0 FLAT                   -49.1919 OS         CSII08055074239_1  NONE       NONE                 0	   19.44   292.59    
+ *49147 IU201A02  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   195.0 FLAT                   -49.3939 OS         CSII08055075437_1  NONE       F275W                0	   19.35   292.50    
+  49148 IU201A03  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   600.0 FLAT                   -49.1919 OS         CSII08055075437_2  NONE       F218W                0	   19.44   292.59    
+  49149 IU201A06  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   200.0 FLAT                   -48.9899 OS         CSII08055081210_1  NONE       F225W                0	   19.35   292.50    
+  49150 IU201A07  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.1919 OS         CSII08055084742_1  NONE       F280N                0	   19.44   292.59    
+  49151 IU201A09  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.5960 OS         CSII08055092345_1  NONE       F280N                0	   19.35   292.50    
+   
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,170 @@
+
+#Bowtie reported in: 52946, 52954, 52970, 52988,
+ ------------------
+			bowtie images in middle of UV01S04A (darks interspersed with biases)
+			1st image in the SMS:  bias
+			UVIS-1', CCD -83, SES
+			chip1		| 1
+			chip2		| 1
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+
+UV28S01H - Science Monitor	 2008/03/23 11:30-2008/03/23 14:20   52917 - 52935
+Manual Castle Flats per CR T-047                                     52936 - 52937
+UV01S04A - darks,binned		 2008/03/23 15:51-2008/03/23 17:57   52938 - 52988   <--- bowties in here
+IR05S03 Subarray RN iteration #4 2008/03/23 18:04-2008/03/23 18:26   52989-52996
+IR05S03 Subarray RN iteration #5 2008/03/23 18:26-2008/03/23 18:52   52997-53004
+UV01S06: Biases only             2008/03/23 19:02-2008/03/23 20:22   53005-53014
+UVIS Manual Alignment            2008/03/23 20:37-2008/03/23 21:25   53015-53019
+UV04S55 Deep PSFs at Droplets    (subarrays)
+
+2008083b.log
+2008083c.log
+ 
+#Preceding images
+ ----------------
+ No obvious problems in initial bias taken as part of UV20S04.
+ 
+ 
+#Following images
+ ----------------
+No bowties  - but they were not ideal: biases, then IR darks, more biases, then subarrays 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb			0
+ lamp problems 			0
+ manual images 			0 (but were taken before the SMS with bowtie)
+ castle/calsystem change 	0
+ bias btb?			1
+ dark btb?			0
+ grism flats btb?		0
+ temperature change btb?	0
+ CCD side changed btb?		0
+ amplifier change btb?		0
+ restart of a previous SMS?	0
+ filters used in the series 	0 
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+
+Levels extremely low; difficult to see in plain image, requires col avg or binning
+
+Manual measurement of plotted col avg:  0.15-0.5 DN = 0.2 - 0.75 e-   (in 1000 sec)
+
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+[side switch between 2008-03-22 18:42:50.04 and 2008-03-23 11:30:23.04]
+ 52917 iu281h01  csii08083114640_1  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 11:30:23.04 abcd  1.5 4206 4140   1   1    0    0      632.800       3       3       3       3 qth    uv15              	52917 bias
+ 52918 iu281h02  csii08083114640_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 11:32:27.04 c     1.5  800  800   1   1 2539  788      632.800       3       3       3       3 qth    uv15              	52918 bias
+ 52919 iu281h03  csii08083114640_3  uvis-1   none       none       300.0 meb1     -81.3131 2008-03-23 11:33:35.04 c     1.5  800  800   1   1 2539  788      632.800       3       3       3       3 qth    uv15              	52919 dark
+ 52920 iu281h04  csii08083114640_4  uvis-1   none       f625w        1.0 meb1     -81.3131 2008-03-23 11:40:41.06 c     1.5  200  200   1   1 2839 1088      632.800       3       3       3       3 qth    uv15              	52920 normal
+ 52921 iu281h05  csii08083114640_5  uvis-1   none       f275w       30.0 meb1     -81.3131 2008-03-23 11:45:19.04 c     1.5  200  200   1   1 2839 1088      250.000       3       3       3       3 xe     uv15              	52921 normal
+ 52922 iu281h07  csii08083120831_1  uvis-1   none       f218w        7.0 meb1     -81.3131 2008-03-23 11:59:58.06 c     1.5  800  800   1   1 2539  788      218.000       3       3       3       3 xe     uv15              	52922 normal
+ 52923 iu281h08  csii08083120831_2  uvis-1   none       f555w        1.0 meb1     -81.3131 2008-03-23 12:06:39.06 c     1.5  800  800   1   1 2539  788      555.000       3       3       3       3 xe     uv15              	52923 normal
+ 52924 iu281h09  csii08083122745_1  uvis-1   none       f555w     1000.0 meb1     -81.5152 2008-03-23 12:08:06.06 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 xe     uv15              	52924 dark
+ 52925 iu281h0c  csii08083123920_1  uvis-1   tungsten-1 f555w       14.0 meb1     -81.7172 2008-03-23 12:34:06.06 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 xe     uv15              	52925 normal
+ 52926 iu281h0d  csii08083123920_2  uvis-1   tungsten-1 f814w        1.9 meb1     -81.7172 2008-03-23 12:36:42.06 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 xe     uv15              	52926 normal
+ 52927 iu281h0f  csii08083125732_1  uvis-1   deuterium  f218w       46.0 meb1     -81.7172 2008-03-23 12:50:41.04 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 xe     uv15              	52927 normal
+ 52928 iu281h0g  csii08083131058_1  uvis-1   none       f225w      705.0 meb1     -81.3131 2008-03-23 12:57:07.06 abcd  1.5 1402 1380   3   3    0    0      555.000       3       3       3       3 xe     flat              	52928 normal
+ 52929 iu281h0i  csii08083133041_1  uvis-1   none       f218w     1000.0 meb1     -81.5152 2008-03-23 13:10:33.04 abcd  1.5 1402 1380   3   3    0    0      555.000       3       3       3       3 xe     flat              	52929 normal
+ 52930 iu281h0k  csii08083133909_1  uvis-1   none       f555w      140.0 meb1     -81.1111 2008-03-23 13:30:16.05 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 qth    flat              	52930 normal
+ 52931 iu281h0m  csii08083133909_2  uvis-1   none       f814w       62.0 meb1     -81.7172 2008-03-23 13:35:41.04 abcd  1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 qth    flat              	52931 normal
+ 52932 iu281h0o  csii08083140054_1  uvis-1   none       f814w      300.0 meb1     -81.3131 2008-03-23 13:50:19.06 abcd  1.5 1402 1380   3   3    0    0      555.000       3       3       3       3 qth    flat              	52932 dark
+ 52933 iu281h0p  csii08083140054_2  uvis-1   none       f814w        0.0 meb1     -81.7172 2008-03-23 13:56:02.06 abcd  1.5 1402 1380   3   3    0    0      555.000       3       3       3       3 qth    flat              	52933 bias
+ 52934 iu281h0q  csii08083140054_3  uvis-1   none       f814w        1.0 meb1     -81.7172 2008-03-23 13:56:44.05 ad    1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 qth    flat              	52934 dark
+ 52935 iu281h0s  csii08083141248_1  uvis-1   none       f814w        1.0 meb1     -81.3131 2008-03-23 14:07:49.04 bc    1.5 4206 4140   1   1    0    0      555.000       3       3       3       3 qth    flat              	52935 dark
+
+ 52936 iaaabbcc  csii08083150851_1  uvis-1   none       f438w       44.0 meb1     -81.5152 2008-03-23 15:05:41.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3 xe     flat              	52936 normal
+ 52937 iaaabbcc  csii08083152131_1  uvis-1   none       f438w       44.0 meb1     -81.1111 2008-03-23 15:18:04.05 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3 xe     flat              	52937 normal
+
+ 52938 iu014a01  csii08083161214_1  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 16:02:21.04 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52938 bias
+ 52939 iu014a02  csii08083161214_2  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 16:03:32.05 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52939 bias
+ 52940 iu014a03  csii08083161214_3  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 16:04:43.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52940 bias
+ 52941 iu014a04  csii08083161214_4  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 16:05:54.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52941 bias
+ 52942 iu014a05  csii08083161214_5  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:07:05.04 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52942 bias
+ 52943 iu014a06  csii08083161214_6  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 16:08:16.05 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52943 bias
+ 52944 iu014a07  csii08083161214_7  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 16:09:27.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52944 bias
+ 52945 iu014a08  csii08083161214_8  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 16:10:38.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52945 bias
+^52946 iu014a09  csii08083163823_1  uvis-1   none       none      1000.0 meb1     -81.3131 2008-03-23 16:11:49.04 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52946 dark
+ 52947 iu014a0b  csii08083163823_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:29:41.04 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52947 bias
+ 52948 iu014a0c  csii08083163823_3  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 16:30:52.05 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52948 bias
+ 52949 iu014a0d  csii08083163823_4  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 16:32:03.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52949 bias
+ 52950 iu014a0e  csii08083163823_5  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 16:33:14.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52950 bias
+ 52951 iu014a0f  csii08083163823_6  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 16:34:25.04 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52951 bias
+ 52952 iu014a0g  csii08083163823_7  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:35:36.05 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52952 bias
+ 52953 iu014a0h  csii08083163823_8  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:36:47.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52953 bias
+^52954 iu014a0i  csii08083170645_1  uvis-1   none       none      1000.0 meb1     -81.7172 2008-03-23 16:37:58.06 abcd  1.5 2102 2070   2   2    0    0      0.00000       3       3       3       3       undefined undefined	52954 dark
+ 52955 iu014a0k  csii08083170645_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:55:50.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52955 bias
+ 52956 iu014a0l  csii08083170645_3  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 16:56:32.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52956 bias
+ 52957 iu014a0m  csii08083170645_4  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:57:14.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52957 bias
+ 52958 iu014a0n  csii08083170645_5  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 16:57:56.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52958 bias
+ 52959 iu014a0o  csii08083170645_6  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 16:58:38.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52959 bias
+ 52960 iu014a0p  csii08083170645_7  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 16:59:20.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52960 bias
+ 52961 iu014a0q  csii08083170645_8  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:00:02.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52961 bias
+ 52962 iu014a0r  csii08083170645_9  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:00:44.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52962 bias
+ 52963 iu014a0s  csii08083170645_10 uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 17:01:26.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52963 bias
+ 52964 iu014a0t  csii08083170645_11 uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:02:08.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52964 bias
+ 52965 iu014a0u  csii08083170645_12 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:02:50.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52965 bias
+ 52966 iu014a0v  csii08083170645_13 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:03:32.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52966 bias
+ 52967 iu014a0w  csii08083170645_14 uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 17:04:14.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52967 bias
+ 52968 iu014a0x  csii08083170645_15 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:04:56.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52968 bias
+ 52969 iu014a0y  csii08083170645_16 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:05:38.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52969 bias
+^52970 iu014a0z  csii08083173545_1  uvis-1   none       none      1000.0 meb1     -81.3131 2008-03-23 17:06:20.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52970 dark
+ 52971 iu014a11  csii08083173545_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:23:43.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52971 bias
+ 52972 iu014a12  csii08083173545_3  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:24:24.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52972 bias
+ 52973 iu014a13  csii08083173545_4  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:25:05.07 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52973 bias
+ 52974 iu014a14  csii08083173545_5  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 17:25:46.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52974 bias
+ 52975 iu014a15  csii08083173545_6  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:26:27.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52975 bias
+ 52976 iu014a16  csii08083173545_7  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 17:27:08.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52976 bias
+ 52977 iu014a17  csii08083173545_8  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 17:27:49.07 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52977 bias
+ 52978 iu014a18  csii08083173545_9  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:28:30.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52978 bias
+ 52979 iu014a19  csii08083173545_10 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:29:11.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52979 bias
+ 52980 iu014a1a  csii08083173545_11 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:29:52.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52980 bias
+ 52981 iu014a1b  csii08083173545_12 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:30:33.07 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52981 bias
+ 52982 iu014a1c  csii08083173545_13 uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:31:14.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52982 bias
+ 52983 iu014a1d  csii08083173545_14 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:31:55.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52983 bias
+ 52984 iu014a1e  csii08083173545_15 uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 17:32:36.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52984 bias
+ 52985 iu014a1f  csii08083173545_16 uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:33:17.07 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52985 bias
+ 52986 iu014a1g  csii08083173545_17 uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 17:33:58.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52986 bias
+ 52987 iu014a1h  csii08083173545_18 uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 17:34:39.06 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52987 bias
+^52988 iu014a1i  csii08083175352_1  uvis-1   none       none      1000.0 meb1     -81.3131 2008-03-23 17:35:21.05 abcd  1.5 1402 1380   3   3    0    0      0.00000       3       3       3       3       undefined undefined	52988 dark
+ 53005 iu010601  csii08083190649_1  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 19:02:22.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53005 bias
+ 53006 iu010602  csii08083190649_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 19:04:26.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53006 bias
+ 53007 iu010604  csii08083192211_1  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 19:17:44.06 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53007 bias
+ 53008 iu010605  csii08083192211_2  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 19:19:48.06 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53008 bias
+ 53009 iu010607  csii08083193733_1  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 19:33:06.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53009 bias
+ 53010 iu010608  csii08083193733_2  uvis-1   none       none         0.0 meb1     -81.5152 2008-03-23 19:35:10.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53010 bias
+ 53011 iu01060a  csii08083195255_1  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 19:48:28.06 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53011 bias
+ 53012 iu01060b  csii08083195255_2  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 19:50:32.06 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53012 bias
+ 53013 iu01060d  csii08083200906_1  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 20:03:50.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53013 bias
+ 53014 iu01060e  csii08083200906_2  uvis-1   none       none         0.0 meb1     -81.1111 2008-03-23 20:05:54.04 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	53014 bias
+
+ 53015 iaaabbcc  csii08083204003_1  uvis-1   none       f625w       10.0 meb1     -81.5152 2008-03-23 20:38:44.06 c     1.5  200  200   1   1 2126 1964      632.800       3       3       3       3 undefi uvzj01            	53015 normal
+ 53016 iaaabbcc  csii08083204652_1  uvis-1   none       f625w       10.0 meb1     -81.5152 2008-03-23 20:45:32.06 c     1.5  200  200   1   1 2126 1964      632.800       3       3       3       3 undefi uvzj01            	53016 normal
+ 53017 iaaabbcc  csii08083205304_1  uvis-1   none       f625w       10.0 meb1     -81.3131 2008-03-23 20:51:45.05 c     1.5  200  200   1   1 2126 1964      632.800       3       3       3       3 undefi uvzj01            	53017 normal
+ 53018 iaaabbcc  csii08083210504_1  uvis-1   none       f625w       10.0 meb1     -81.3131 2008-03-23 21:03:44.06 c     1.5  200  200   1   1 2126 1964      632.800       3       3       3       3 undefi uvzj01            	53018 normal
+ 53019 iaaabbcc  csii08083211904_1  uvis-1   none       f625w       10.0 meb1     -81.5152 2008-03-23 21:17:44.06 c     1.5  200  200   1   1 2126 1964      632.800       3       3       3       3 undefi uvzk01            	53019 normal
+
+ 53020 iu045501  csii08083213644_1  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-23 21:33:22.04 d     1.5  400  400   1   1 3041 2266      0.00000       3       3       3       3 qth    uvis(394,-1224)   	53020 bias
+ 53021 iu045502  csii08083213644_2  uvis-1   none       none         0.0 meb1     -81.3131 2008-03-23 21:34:03.06 d     1.5  400  400   1   1 3041 2266      0.00000       3       3       3       3 qth    uvis(394,-1224)   	53021 bias
+ 53022 iu045503  csii08083213644_3  uvis-1   none       f438w        2.0 meb1     -81.5152 2008-03-23 21:35:41.05 d     1.5  400  400   1   1 3041 2266      0.00000       3       3       3       3 qth    uvis(394,-1224)   	53022 normal
+ 53023 iu045505  csii08083213857_1  uvis-1   none       f438w       20.0 meb1     -81.3131 2008-03-23 21:37:36.06 d     1.5  400  400   1   1 3041 2266      0.00000       3       3       3       3 qth    uvis(394,-1224)   	53023 normal
+
+#image slice (blank fr now)
+ -----------
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------

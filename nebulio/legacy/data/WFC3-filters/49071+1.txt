@@ -1,0 +1,79 @@
+#Bowtie reported in: 49071,49072	    
+ ------------------
+			when the 1st bowtie appears in the SMS? 8
+			1st image in the SMS: bias                   
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1 |write 1 if a bowtie is visible
+			chip2		1 |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+49064          0.0 U NONE   ABCD  bias db=84                      med=      0, min=    -11, max=   4462
+49065          0.0 U NONE   C     bias 800x800@2539,788 db=84     med=   2497, min=   2487, max=   2507
+49066        300.0 U NONE   C     dark 800x800@2539,788 db=84     med=   2498, min=   2488, max=  10195
+49067          2.0 U F625W  C     UV15 200x200@2839,1088 db=84    med=   2497, min=   2489, max=  43402
+49068         27.0 U F275W  C     XE UV15 200x200@2839,1088       med=   2497, min=   2488, max=  24128
+49069          7.0 U F218W  C     XE UV15 800x800@2539,788        med=   2497, min=   2487, max=   8435
+49070          1.0 U F555W  C     XE UV15 800x800@2539,788        med=   2497, min=   2486, max=  23443
+49071       1000.0 U F555W  ABCD  dark                            med=      6, min=     -9, max=  42454
+49072         14.0 U F555W  ABCD  TUNGSTEN-1                      med=  19465, min=    -16, max=  38306
+ 
+ 
+#Preceding images
+ ----------------
+ No obvious problems in initial bias 
+ images between the 1st bias and the 1st bowties are subarrays
+ SMS before that
+ 
+#Following images
+ ----------------
+clean 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 1 
+ lamp problems btb? 1
+ manual images btb? 1
+ castle/calsystem change btb? 0
+ bias btb? 1
+ dark btb? 0
+ grism flats btb? 0
+ temperature change btb? 0
+ CCD side changed btb? 0
+ amplifier change btb? 1
+ restart of a previous SMS? 0
+ filters used in the series G280	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+  49064 IU281F01  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB1     0.0 UV15                   -49.3939 OS         CSII08054141023_1  NONE       NONE                 0	   19.35   292.50    
+  49065 IU281F02  UVIS UVIS-1   bias     C     1.5   1   1 MEB1     0.0 UV15                   -49.3939 OS         CSII08054141023_2  NONE       NONE                 0	   19.35   292.50    
+  49066 IU281F03  UVIS UVIS-1   dark     C     1.5   1   1 MEB1   300.0 UV15                   -49.1919 OS         CSII08054141023_3  NONE       NONE                 0	   19.44   292.59    
+  49067 IU281F04  UVIS UVIS-1   normal   C     1.5   1   1 MEB1     2.0 UV15                   -49.1919 OS         CSII08054141023_4  NONE       F625W                0	   19.44   292.59    
+  49068 IU281F05  UVIS UVIS-1   normal   C     1.5   1   1 MEB1    27.0 UV15                   -49.1919 OS         CSII08054141023_5  NONE       F275W                0	   19.44   292.59    
+  49069 IU281F07  UVIS UVIS-1   normal   C     1.5   1   1 MEB1     7.0 UV15                   -49.3939 OS         CSII08054143411_1  NONE       F218W                0	   19.35   292.50    
+  49070 IU281F08  UVIS UVIS-1   normal   C     1.5   1   1 MEB1     1.0 UV15                   -49.1919 OS         CSII08054143411_2  NONE       F555W                0	   19.44   292.59    
+ *49071 IU281F09  UVIS UVIS-1   dark     ABCD  1.5   1   1 MEB1  1000.0 UV15                   -49.5960 OS         CSII08054145325_1  NONE       F555W                0	   19.35   292.50    
+ *49072 IU281F0C  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1    14.0 UV15                   -49.3939 OS         CSII08054150500_1  TUNGSTEN-1 F555W                0	   19.35   292.50    
+   
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

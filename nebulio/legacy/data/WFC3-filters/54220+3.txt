@@ -1,0 +1,120 @@
+#Bowtie reported in: 54220,54221,54222,54223
+ ------------------
+			when the 1st bowtie appears in the SMS? 2nd image in SMS UV20S04
+			1st image in the SMS:                   BIAS
+			UVIS-1', CCD -83, SES
+			chip1		1  (1=yes, 0=no)
+			chip2		1
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+ UV05S05 UV Gain (quantum yield) 2008/03/27 13:52-2008/03/27 16:22   54141-54202   meds : range
+ manual D2s,F218W		            16:22-           17:07   54203-54208   meds : range
+ UV21S04A - Grism NB flats	 2008/03/27 17:07-2008/03/27 20:52   54212-54218   meds ~7K DN
+ UV20S04  - Castle flats	 2008/03/27 21:05-2008/03/28 00:02   54219-54235   meds ~25K DN
+ UV20S02  - Castle flats	 2008/03/28 00:11-2008/03/28 04:03   54236-54241   meds ~500-6500 DN
+ 
+ 
+#Preceding images
+ ----------------
+ No obvious problems in initial bias taken as part of UV20S04.
+ No obvious problems in preceding grism flats.
+ No obvious problems in preceding UV gain flats. 
+ Included checks via plain images, image ratios, avg cols. 
+
+ 
+#Following images
+ ----------------
+ Three previously un-identified bowties: 54221-54223, which directly follow 54220
+ Images beyond 54223 and out to end of SMS (54235) are clean.
+ 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb?				0
+ lamp problems btb?			0
+ manual images btb?			1
+ castle/calsystem change btb?		0
+ bias btb?				1
+ dark btb?				0
+ grism flats btb?			1
+ temperature change btb?		0
+ CCD side changed btb?			0
+ amplifier change btb?			0
+ restart of a previous SMS?		0
+ filters used in the series 	   	f336w, f343n, f373n, f390w
+ 
+ 
+#Approximate levels (can leave it blank for now)
+ ------------------
+
+image  level1       level2    lev1-lev2      exposure date  flatlevel     bowtie
+ 							    (median, DN)   (DN)
+401    (no bowtie in bias                     21:05:22.04
+
+402    0.9867023   0.9841394   0.0025629      21:08:21.05    24410.        62.
+403    0.9871063   0.9862676   0.0008387      21:14:20.06    24411.	   20.
+405    0.9880539   0.9877278   0.0003261      21:23:02.04    26074.	   8.5
+407    0.989885    0.9897454   0.0001396      22:03:48.06    24922.	   3.5
+
+Approx. only; measured in [1].
+Measured on ratio iu200402r_08092131425.div.iu200402r_08087212327.fits
+NOTE: there may be bowtie in 08092 as well? Otherwise bowtie in day087 data is negative.  
+ 
+#Approximate size of bowtie (leave it blank for now)
+ --------------------------
+
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+ ...
+  54202 iu050524  csii08087161540_9  uvis-1   none       f606w        0.0 meb1     -81.9192 2008-03-27 16:13:10.04 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54202 bias
+  54203 iaaabbcc  csii08087163852_1  uvis-1   deuterium  f218w        0.9 meb1     -82.1212 2008-03-27 16:37:02.04 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54203 normal
+  54204 iaaabb0   csii08087164141_1  uvis-1   deuterium  f218w        0.9 meb1     -82.1212 2008-03-27 16:39:52.06 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54204 normal
+  54205 iaaabbcc  csii08087164547_1  uvis-1   deuterium  f218w        4.4 meb1     -81.7172 2008-03-27 16:44:02.04 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54205 normal
+  54206 iaaabb0   csii08087164832_1  uvis-1   deuterium  f218w        4.4 meb1     -81.9192 2008-03-27 16:46:43.06 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54206 normal
+  54207 iaaabbcc  csii08087165232_1  uvis-1   deuterium  f218w       12.3 meb1     -82.1212 2008-03-27 16:50:22.04 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54207 normal
+  54208 iaaabb0   csii08087165532_1  uvis-1   deuterium  f218w       12.3 meb1     -82.1212 2008-03-27 16:53:32.06 c     1.5 1024 1024   1   1 3076    2      555.000       3       3       3       3 qth    flat                   54208 normal
+ 
+  54209 iu214a01  csii08087181424_1  uvis-1   none       g280      3600.0 meb1     -82.3232 2008-03-27 17:11:00.06 abcd  1.5 4206 4140   1   1    0    0      260.000       3       3       3       3 xe     flat                   54209 normal
+  54210 iu214a02  csii08087190615_1  uvis-1   none       g280      2900.0 meb1     -82.1212 2008-03-27 18:13:59.06 abcd  1.5 4206 4140   1   1    0    0      290.000       3       3       3       3 xe     flat                   54210 normal
+  54211 iu214a04  csii08087192414_1  uvis-1   none       g280       900.0 meb1     -81.9192 2008-03-27 19:05:50.04 abcd  1.5 4206 4140   1   1    0    0      320.000       3       3       3       3 xe     flat                   54211 normal
+  54212 iu214a06  csii08087194155_1  uvis-1   none       g280       450.0 meb1     -81.9192 2008-03-27 19:23:49.05 abcd  1.5 4206 4140   1   1    0    0      350.000       3       3       3       3 xe     flat                   54212 normal
+  54213 iu214a08  csii08087194155_2  uvis-1   none       g280       310.0 meb1     -81.7172 2008-03-27 19:34:18.04 abcd  1.5 4206 4140   1   1    0    0      380.000       3       3       3       3 xe     flat                   54213 normal
+  54214 iu214a0a  csii08087200422_1  uvis-1   none       g280       190.0 meb1     -82.1212 2008-03-27 19:52:56.06 abcd  1.5 4206 4140   1   1    0    0      410.000       3       3       3       3 xe     flat                   54214 normal
+  54215 iu214a0b  csii08087200422_2  uvis-1   none       g280       165.0 meb1     -81.9192 2008-03-27 19:59:07.06 abcd  1.5 4206 4140   1   1    0    0      440.000       3       3       3       3 xe     flat                   54215 normal
+  54216 iu214a0d  csii08087202559_1  uvis-1   none       g280       135.0 meb1     -81.7172 2008-03-27 20:15:23.06 abcd  1.5 4206 4140   1   1    0    0      470.000       3       3       3       3 xe     flat                   54216 normal
+  54217 iu214a0e  csii08087202559_2  uvis-1   none       g280       170.0 meb1     -81.9192 2008-03-27 20:20:39.06 abcd  1.5 4206 4140   1   1    0    0      500.000       3       3       3       3 xe     flat                   54217 normal
+  54218 iu214a0g  csii08087204346_1  uvis-1   none       g280       200.0 meb1     -82.1212 2008-03-27 20:36:58.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54218 normal
+ 
+  54219 iu200401  csii08087211445_1  uvis-1   none       none         0.0 meb1     -81.9192 2008-03-27 21:05:22.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54219 bias
+ *54220 iu200402  csii08087212327_1  uvis-1   none       f336w      216.0 meb1     -81.9192 2008-03-27 21:08:21.05 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54220 normal
+ ^54221 iu200403  csii08087212327_2  uvis-1   none       f343n      374.0 meb1     -82.1212 2008-03-27 21:14:20.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54221 normal
+ ^54222 iu200405  csii08087215226_1  uvis-1   none       f373n     1413.0 meb1     -82.1212 2008-03-27 21:23:02.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54222 normal
+ ^54223 iu200407  csii08087215226_2  uvis-1   none       f390w       43.0 meb1     -82.3232 2008-03-27 21:49:18.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54223 normal
+  54224 iu200409  csii08087221016_1  uvis-1   none       f390m      220.0 meb1     -81.9192 2008-03-27 22:03:48.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54224 normal
+  54225 iu20040a  csii08087222637_1  uvis-1   none       f395n      482.0 meb1     -82.3232 2008-03-27 22:09:51.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54225 normal
+  54226 iu20040c  csii08087222637_2  uvis-1   none       f410m      193.0 meb1     -82.1212 2008-03-27 22:20:58.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54226 normal
+  54227 iu20040e  csii08087224144_1  uvis-1   none       f438w       50.0 meb1     -82.3232 2008-03-27 22:38:04.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54227 normal
+  54228 iu20040f  csii08087225623_1  uvis-1   none       f469n      501.0 meb1     -81.7172 2008-03-27 22:41:19.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54228 normal
+  54229 iu20040h  csii08087225623_2  uvis-1   none       f467m      101.0 meb1     -82.1212 2008-03-27 22:52:17.05 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat              	    54229 normal
+  54230 iu20040j  csii08087231110_1  uvis-1   none       f475w       18.0 meb1     -81.9192 2008-03-27 23:07:53.05 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54230 normal
+  54231 iu20040k  csii08087232021_1  uvis-1   none       f487n      405.0 meb1     -82.1212 2008-03-27 23:10:45.05 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54231 normal
+  54232 iu20040m  csii08087233148_1  uvis-1   none       f502n      377.0 meb1     -81.7172 2008-03-27 23:19:56.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54232 normal
+  54233 iu20040o  csii08087233148_2  uvis-1   none       f547m       35.0 meb1     -81.9192 2008-03-27 23:28:47.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54233 normal
+  54234 iu20040q  csii08087234903_1  uvis-1   none       f555w       14.0 meb1     -82.1212 2008-03-27 23:43:15.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54234 normal
+  54235 iu20040r  csii08087234903_2  uvis-1   none       f555w        0.0 meb1     -81.9192 2008-03-27 23:45:51.06 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54235 bias
+  54236 iu200201  csii08088001445_1  uvis-1   none       none         0.0 meb1     -81.7172 2008-03-28 00:11:21.04 abcd  1.5 4206 4140   1   1    0    0      530.000       3       3       3       3 xe     flat                   54236 bias
+   ...
+   
+
+#image slice (blank for now)
+ -----------
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

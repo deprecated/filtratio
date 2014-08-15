@@ -1,0 +1,76 @@
+#Bowtie reported in: 45103		    
+ ------------------
+			when the 1st bowtie appears in the SMS? 5th image 
+			1st image in the SMS: 45099 (bias)                 
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1  |write 1 if a bowtie is visible
+			chip2		1  |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+ 
+45099    bias      
+45100    bias      
+45101    F555W    Castle flat  
+45102    F814W    Castle flat  
+45102    F814W    Castle flat  
+45103    F438W    Castle flat  
+ 
+  
+#Preceding images
+ ----------------
+ M2 cover on during bias acquisition 
+ Detector was ramped with new 0.5 degree setpoint change every 30sec down to -50C.
+ A little bit of dark or room light is detectable in these biases.
+ Two previously un-identified bowties: 45101 and 45102, which directly precede 45103
+
+#Following images
+ ----------------
+ Images beyond 45103 and out to end of SMS (45105) are bias and bowtie clean.
+ 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 0
+ lamp problems btb? 0
+ manual images btb? 0
+ castle/calsystem change btb? 0
+ bias btb? 2
+ dark btb? 0
+ grism flats btb? 0
+ temperature change btb? 1
+ CCD side changed btb? 1
+ amplifier change btb? 0
+ restart of a previous SMS? 0
+ filters used in the series F555W, F814W, F438W	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+  
+  45099 IAAABBCC  CSII07354141937_1  UVIS-1   NONE	 NONE    0.0     MEB1 -127.970 ABCD  1.5   1   1 	bias	 	      
+  45100 IAAABBCC  CSII07354142938_1  UVIS-1   NONE	 NONE    0.0     MEB1 -127.556 ABCD  1.0   1   1 	bias	 	      
+ ^45101 ICSA0301  CSII07354144219_1  UVIS-1   TUNGSTEN-1 F555W   8.0     MEB1 -127.556 ABCD  1.5   1   1 	normal   	      
+ ^45102 ICSA0302  CSII07354145157_1  UVIS-1   TUNGSTEN-1 F814W   1.0     MEB1 -127.556 ABCD  1.5   1   1 	normal   	      
+ *45103 ICSA0303  CSII07354150428_1  UVIS-1   TUNGSTEN-1 F438W   200.0   MEB1 -127.556 ABCD  1.5   1   1 	normal   	      
+  45104 IAAABBCC  CSII07354151857_1  UVIS-1   NONE	 NONE    0.0     MEB1 -127.556 ABCD  1.0   1   1 	bias	 	      
+  45105 IAAABBCC  CSII07354153228_1  UVIS-1   NONE	 NONE    0.0     MEB1 -127.970 ABCD  1.0   1   1 	bias	 	      
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

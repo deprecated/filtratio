@@ -1,0 +1,97 @@
+#Bowtie reported in: 45758	    
+ ------------------
+			when the 1st bowtie appears in the SMS? 7
+			1st image in the SMS: flat                   
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1 |write 1 if a bowtie is visible
+			chip2		1 |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+
+45752          8.0 U F555W  ABCD                                  
+45753          8.0 U F555W  ABCD                                  med=  11843, min=    -13, max=  48240
+45754        200.0 U F438W  ABCD                                  med=  12489, min=    -15, max=  39518
+45755          8.0 U F555W  ABCD                                  med=  11188, min=    -12, max=  29535
+45756          8.0 U F555W  ABCD                                  med=  11210, min=    -13, max=  42876
+45757          8.0 U F555W  ABCD                                  med=  11220, min=    -13, max=  29888
+45758          8.0 U F555W  ABCD                                  med=  11222, min=    -13, max=  45434
+ 
+ 
+#Preceding images
+ ----------------
+ 633nm HeNe laser erroneously left on after the PDI test (strong radiation on flats 45752 e 45753)
+ 
+ 
+  
+#Following images
+ ----------------
+ following images are clean
+ 
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 1 
+ lamp problems btb? 1
+ manual images btb? 0
+ castle/calsystem change btb? 0
+ bias btb? 1 ***
+ dark btb? 0
+ grism flats btb? 1
+ temperature change btb? 0
+ CCD side changed btb? 0
+ amplifier change btb? 1
+ restart of a previous SMS? 0
+ filters used in the series F555w	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+ 45466 IU150701  UVIS UVIS-1   bias     A     1.5   1   1 MEB2     0.0 UV16                   -127.556 OS         CSII08009042604_1  NONE       NONE                 0	   20.19   293.34    
+ 45467 IU150702  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    10.0 UV16                   -127.556 OS         CSII08009042604_2  NONE       NONE                 0	   20.19   293.34    
+ 45468 IU150704  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    10.0 UV16                   -127.349 OS         CSII08009042920_1  NONE       NONE                 0	   20.19   293.34    
+ 45469 IU150706  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     5.0 UV16                   -127.763 OS         CSII08009043814_1  NONE       NONE                 0	   20.19   293.34    
+ 45470 IU150708  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     5.0 UV16                   -127.349 OS         CSII08009044042_1  NONE       NONE                 0	   20.19   293.34    
+ 45471 IU15070A  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    10.0 UV16                   -127.142 OS         CSII08009044945_1  NONE       NONE                 0	   20.27   293.42    
+ 45472 IU15070C  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    10.0 UV16                   -127.349 OS         CSII08009045218_1  NONE       NONE                 0	   20.19   293.34    
+ 45473 IU15070E  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     8.0 UV16                   -127.763 OS         CSII08009045825_1  NONE       NONE                 0	   20.19   293.34    
+ 45474 IU15070G  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     8.0 UV16                   -127.556 OS         CSII08009050056_1  NONE       NONE                 0	   20.27   293.42    
+ 45475 IU15070I  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     5.0 UV16                   -127.349 OS         CSII08009050737_1  NONE       NONE                 0	   20.19   293.34    
+ 45476 IU15070K  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     5.0 UV16                   -127.556 OS         CSII08009051005_1  NONE       NONE                 0	   20.19   293.34    
+ 45477 IU15070M  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     3.0 UV16                   -127.349 OS         CSII08009051644_1  NONE       NONE                 0	   20.27   293.42    
+ 45478 IU15070O  UVIS UVIS-1   normal   A     1.5   1   1 MEB2     3.0 UV16                   -127.349 OS         CSII08009051910_1  NONE       NONE                 0	   20.19   293.34    
+ 45479 IU15070Q  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    20.0 UV16                   -127.349 OS         CSII08009052529_1  NONE       NONE                 0	   20.19   293.34    
+ 45480 IU15070S  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    20.0 UV16                   -127.556 OS         CSII08009052812_1  NONE       NONE                 0	   20.19   293.34    
+ 45481 IU15070U  UVIS UVIS-1   normal   A     1.5   1   1 MEB2   100.0 UV16                   -127.763 OS         CSII08009053601_1  NONE       NONE                 0	   20.19   293.34    
+ 45482 IU15070W  UVIS UVIS-1   normal   A     1.5   1   1 MEB2   100.0 UV16                   -127.763 OS         CSII08009054004_1  NONE       NONE                 0	   20.19   293.34    
+ 45483 IU15070Y  UVIS UVIS-1   normal   A     1.5   1   1 MEB2   100.0 UV16                   -127.556 OS         CSII08009055130_1  NONE       NONE                 0	   20.27   293.42    
+ 45484 IU15070Z  UVIS UVIS-1   normal   A     1.5   1   1 MEB2    10.0 UV16                   -127.556 OS         CSII08009055130_2  NONE       NONE                 0	   20.27   293.42    
+ 
+  45485 IU210601  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB2     0.0 FLAT                   -127.763 OS         CSII08009071745_1  NONE       NONE                 0	   20.27   293.42    
+ *45486 IU210602  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB2  3600.0 FLAT                   -127.349 OS         CSII08009082054_1  NONE       G280                 0	   20.27   293.42    
+ *45487 IU210604  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB2  2230.0 FLAT                   -127.763 OS         CSII08009090113_1  NONE       G280                 0	   20.27   293.42    
+ *45488 IU210606  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB2  1358.0 FLAT                   -127.763 OS         CSII08009092745_1  NONE       G280                 0	   20.27   293.42    
+ *45489 IU210608  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB2  2770.0 FLAT                   -127.556 OS         CSII08009101705_1  NONE       G280                 0	   20.27   293.42    
+ *45490 IU21060A  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB2   828.0 FLAT                   -127.349 OS         CSII08009103600_1  NONE       G280                 0	   20.36   293.51    
+  45491 IU21060C  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB2     0.0 FLAT                   -127.349 OS         CSII08009103600_2  NONE       G280                 0	   20.36   293.51    
+   
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

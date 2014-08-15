@@ -1,0 +1,72 @@
+#Bowtie reported in: 49141	    
+ ------------------
+			when the 1st bowtie appears in the SMS? 2
+			1st image in the SMS: bias                   
+			UVIS-1', CCD -50 (for how long? T.Wheeler checking), SES
+			chip1		1 |write 1 if a bowtie is visible
+			chip2		1 |0 if it is not
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+49140          0.0 U NONE   ABCD  bias                            med=      1, min=    -10, max=   4554
+49141        195.0 U F275W  ABCD  D2ARC1 FLAT                     med=  26662, min=    -21, max=  46854
+49142        600.0 U F218W  ABCD  D2ARC1 FLAT                     med=  25286, min=    -19, max=  45776 
+49143        200.0 U F225W  ABCD  D2ARC1 FLAT                     med=  24498, min=    -18, max=  45551
+49144       1980.0 U F280N  ABCD  D2ARC1 FLAT                     med=  13130, min=    -15, max=  44349
+49145       1980.0 U F280N  ABCD  D2ARC1 FLAT                     med=  13076, min=    -15, max=  44278
+ 
+ 
+#Preceding images
+ ----------------
+ No obvious problems in initial bias 
+ 
+#Following images
+ ----------------
+ bowties in the following SMS (see 49147.txt)
+ 
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb? 0 
+ lamp problems btb? 1
+ manual images btb? 0
+ castle/calsystem change btb? 0
+ bias btb? 1
+ dark btb? 0
+ grism flats btb? 0
+ temperature change btb? 0
+ CCD side changed btb? 0
+ amplifier change btb? 0
+ restart of a previous SMS? 1
+ filters used in the series F275W	   
+ 
+ 
+#Approximate levels (leave it blanck for now)
+ ------------------
+  
+ 
+#Approximate size of bowtie (leave it blanck for now)
+ --------------------------
+
+ 
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+ ^ previously un-ID'd bowtie (54223 is extremely faint, even in ratio) 
+ 
+ 49140 IU201A01  UVIS UVIS-1   bias     ABCD  1.5   1   1 MEB1     0.0 FLAT                   -49.3939 OS         CSII08055053239_1  NONE       NONE                 0	   19.35   292.50    
+ *49141 IU201A02  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   195.0 FLAT                   -49.1919 OS         CSII08055054437_1  NONE       F275W                0	   19.44   292.59    
+ 49142 IU201A03  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   600.0 FLAT                   -49.3939 OS         CSII08055054437_2  NONE       F218W                0	   19.35   292.50    
+ 49143 IU201A06  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1   200.0 FLAT                   -49.1919 OS         CSII08055060210_1  NONE       F225W                0	   19.44   292.59    
+ 49144 IU201A07  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.1919 OS         CSII08055063742_1  NONE       F280N                0	   19.44   292.59    
+ 49145 IU201A09  UVIS UVIS-1   normal   ABCD  1.5   1   1 MEB1  1980.0 FLAT                   -49.1919 OS         CSII08055071345_1  NONE       F280N                0	   19.44   292.59    
+
+    
+
+#image slice (blank fr now)
+ -----------
+
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

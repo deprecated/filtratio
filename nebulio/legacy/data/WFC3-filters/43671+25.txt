@@ -1,0 +1,202 @@
+#Bowtie reported in: 43671 - 43696  (total of 26 images)
+ ------------------
+			when the 1st bowtie appears in the SMS? 2nd image in SMS UV05S02
+			1st image in the SMS:                   BIAS
+			UVIS-1', CCD -78, SES
+			chip1		1
+			chip2		1
+
+
+#Summary of exposure sequence logfiles
+ ------------------------------------- 
+
+IR24S13 IR Dark VS Bus Voltage       2007/09/28 05:16- 2007/09/28 22:48  43589-43600
+IR02S11 IR Absolute Gain             2007/09/28 22:56 - 2007/09/29 01:25 43601-43625
+IR11S15A IR/F160W thruput/flat       2007/09/29 01:35-2007/09/29 02:10   43626-43629
+IR11S16 IR/F110W thruput/flat        2007/09/29 02:16-2007/09/29 02:51   43601-43625
+IR11S15A IR/F160W thruput/flat       2007/09/29 01:35-2007/09/29 02:10   43626-43629
+IR11S16 IR/F110W thruput/flat        2007/09/29 02:16- 2007/09/29 02:51  43630-43633
+IR11S15A IR/F160W thruput/flat       2007/09/29 03:23-2007/09/29 03:58   43634-43637
+IR11S16 IR/F110W thruput/flat        2007/09/29 04:05-2007/09/29 04:40   43638-43641
+         IR6Darks		     2007/09/29 04:50-2007/09/29 09:07   43642-43669   from log: "Quick-Look wfc3_acq was left running..overnight"
+UV05S02  UVIS Linearity across FOV   2007/09/30 06:12-2007/09/30 09:37   43670 - 43730 <--- bowties
+IR11S15A IR/F160W thruput/flat       2007/09/30 14:19-2007/09/30 14:51   43731 - 43734
+IR13S11A: IR External Filter Flats
+
+2007272a.log,2007273a.log
+
+*** NOTE: ~21 hr gap in imaging prior to the bowties, between IR SMS
+(IR6Darks) and UVIS linearity. Tom Wheeler confirmed there was a side
+switch during this time period from side1 to side-2, i.e., all
+detectors were warmed up and re-cooled, as well as some TECFIRE
+tweaking.
+
+ 
+#Preceding images
+ ----------------
+
+Single UVIS bias taken immediately before first bowtie frame. 
+Prior UVIS images were taken ~2.5 days earlier, on the other instrument side.
+(IR imaging during the 2.5 days of no UVIS imaging)
+
+ 
+#Following images
+ ----------------
+
+Bowties addressed here were in 2x2 binned linearity sequence, all the
+way through. There were no obvious bowties in the 3x3 binned linearity
+images that followed.
+
+This same proposal was run earlier in TV2, day 221. Image ratios
+between the ones in question here (day 273) and those from 221 showed
+no bowties in 3x3 data.
+
+#In more detail (1=yes, 0=no, btb=before the bowtie)
+ --------------
+ subarray btb?				0
+ lamp problems btb?			0
+ manual images btb?			0
+ castle/calsystem change btb?		1
+ bias btb?				1
+ dark btb?				0
+ grism flats btb?			0
+ temperature change btb?		0
+ CCD side changed btb?			1
+ amplifier change btb?			0
+ restart of a previous SMS?		0
+ filters used in the series 	   	f606w
+ 
+ 
+#Approximate levels (leave it blank for now)
+ ------------------
+
+measurements based upon plain images, not ratios 
+
+#       image                   inside.bowtie   inside/outside      diff in levels
+#                                    (DN)                             (e-)              
+  iu050202r_07273062152_flt.fits     50.26        1.014147            1.05              
+  iu050203r_07273062700_flt.fits     50.38        1.015338            1.14              
+  iu050204r_07273062700_flt.fits     506.6           1.013            9.75              
+  iu050206r_07273063537_flt.fits     506.7        1.014008            10.5              
+  iu050208r_07273063537_flt.fits     524.9        1.013328           10.35              
+  iu050209r_07273064121_flt.fits     5199.        1.012636            97.5              
+  iu05020br_07273070039_flt.fits     5199.         1.01283             99.              
+  iu05020dr_07273070425_flt.fits     5360.        1.011885            94.5              
+  iu05020er_07273070810_flt.fits    10525.        1.010929            171.              
+  iu05020fr_07273071208_flt.fits    10531.         1.01139           178.5              
+  iu05020gr_07273071605_flt.fits    20908.        1.011783            366.              
+  iu05020hr_07273072014_flt.fits    20923.        1.009429            294.              
+  iu05020ir_07273072423_flt.fits    31353.        1.008156            381.              
+  iu05020kr_07273072844_flt.fits    31382.        1.006854            321.              
+  iu05020mr_07273073305_flt.fits    34230.        1.008973           457.5              
+  iu05020or_07273073739_flt.fits    34235.        1.005865            300.              
+  
+
+#Approximate size of bowtie (leave it blank for now)
+ --------------------------
+
+
+#Surrounding images in much more detail
+ --------------------------------------* 
+ *previously ID'd bowtie
+
+Bowties were obvious in 43671-43686 plain images; ratios were reuqired for 43687-43695
+...
+	[these were from throughput SMS ...]
+ 43419 iu150322  csii07270033054_1  uvis-2   none       none        40.0 meb1     -78.0930 2007-09-27 03:08:24.04 a     1.5  800  800   1   1  802  690      220.000       3       3       3       3 xe     uv16              	43419 normal
+ 43420 iu150323  csii07270033054_2  uvis-2   none       none        40.0 meb1     -78.0930 2007-09-27 03:10:21.07 a     1.5  800  800   1   1  802  690      220.000       3       3       3       3 xe     uv16              	43420 normal
+ 43421 iu150324  csii07270033054_3  uvis-2   none       none         5.0 meb1     -78.4651 2007-09-27 03:16:38.06 a     1.5  800  800   1   1  802  690      215.000       3       3       3       3 xe     uv16              	43421 normal
+ 43422 iu150325  csii07270033054_4  uvis-2   none       none         5.0 meb1     -78.4651 2007-09-27 03:18:00.04 a     1.5  800  800   1   1  802  690      215.000       3       3       3       3 xe     uv16              	43422 normal
+ 43423 iu150326  csii07270033054_5  uvis-2   none       none        10.0 meb1     -78.0930 2007-09-27 03:22:42.06 a     1.5  800  800   1   1  802  690      210.000       3       3       3       3 xe     uv16              	43423 normal
+ 43424 iu150327  csii07270033054_6  uvis-2   none       none        10.0 meb1     -78.0930 2007-09-27 03:24:09.07 a     1.5  800  800   1   1  802  690      210.000       3       3       3       3 xe     uv16              	43424 normal
+ 43425 iu150328  csii07270033054_7  uvis-2   none       none        30.0 meb1     -78.0930 2007-09-27 03:28:56.04 a     1.5  800  800   1   1  802  690      205.000       3       3       3       3 xe     uv16              	43425 normal
+ 43426 iu15032a  csii07270033455_1  uvis-2   none       none        30.0 meb1     -78.0930 2007-09-27 03:32:57.07 a     1.5  800  800   1   1  802  690      205.000       3       3       3       3 xe     uv16              	43426 normal
+ 43427 iu15032c  csii07270034627_1  uvis-2   none       none       100.0 meb1     -78.2791 2007-09-27 03:39:16.04 a     1.5  800  800   1   1  802  690      200.000       3       3       3       3 xe     uv16              	43427 normal
+ 43428 iu15032d  csii07270034627_2  uvis-2   none       none       100.0 meb1     -78.2791 2007-09-27 03:42:13.07 a     1.5  800  800   1   1  802  690      200.000       3       3       3       3 xe     uv16              	43428 normal
+
+	[these three don't appear in log files]
+ 43429 iaaabbcc  csii07270040221_1  uvis-2   none       none         0.5 meb1     -78.4651 2007-09-27 03:55:30.06 ad    1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	43429 normal
+ 43430 iaaabbcc  csii07270042111_1  uvis-2   none       none         0.5 meb1     -78.2791 2007-09-27 04:10:48.04 bc    1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	43430 normal
+ 43431 iaaabbcc  csii07270044203_1  uvis-2   none       none         0.5 meb1     -78.0930 2007-09-27 04:31:38.06 abcd  1.5 3920 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	43431 normal
+
+	[these two may be IR, not UVIS, according to logfiles}
+ 43446 iaaabbcc  csii07270191207_1  uvis-2   none       none         0.5 meb1     -77.9070 2007-09-27 19:07:28.04 ad    1.5 4206 4140   1   1    0    0      1390.00       3       3       3       3 qth    ir01              	43446 normal
+ 43447 iaaabbcc  csii07270191826_1  uvis-2   none       none         0.5 meb1     -77.9070 2007-09-27 19:07:28.04 ad    1.5 4206 4140   1   1    0    0      1390.00       3       3       3       3 qth    ir01              	43447 normal
+
+ 	[3-day gap without any UVIS imaging; side changed]
+	[All IR imaging here, ending wtih IR6Darks just before linearity proposal started]
+
+  43670 iu050201  csii07273062152_1  uvis-2   none       none         0.0 meb2     -78.0930 2007-09-30 06:15:23.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43670 bias
+* 43671 iu050202  csii07273062152_2  uvis-2   none       f606w       23.0 meb2     -78.0930 2007-09-30 06:17:31.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43671 normal
+* 43672 iu050203  csii07273062700_1  uvis-2   none       f606w       23.0 meb2     -78.0930 2007-09-30 06:19:46.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43672 normal
+* 43673 iu050204  csii07273062700_2  uvis-2   none       f606w      232.0 meb2     -78.2791 2007-09-30 06:21:27.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43673 normal
+* 43674 iu050206  csii07273063537_1  uvis-2   none       f606w      232.0 meb2     -78.4651 2007-09-30 06:26:35.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43674 normal
+* 43675 iu050208  csii07273063537_2  uvis-2   none       f606w       27.0 meb2     -77.9070 2007-09-30 06:33:27.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43675 normal
+* 43676 iu050209  csii07273064121_1  uvis-2   none       f606w      267.0 meb2     -77.9070 2007-09-30 06:35:13.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43676 normal
+* 43677 iu05020b  csii07273070039_1  uvis-2   none       f606w      267.0 meb2     -78.0930 2007-09-30 06:40:55.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43677 normal
+* 43678 iu05020d  csii07273070425_1  uvis-2   none       f606w       25.0 meb2     -78.0930 2007-09-30 06:48:23.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43678 normal
+* 43679 iu05020e  csii07273070810_1  uvis-2   none       f606w       49.0 meb2     -77.9070 2007-09-30 06:50:07.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43679 normal
+* 43680 iu05020f  csii07273071208_1  uvis-2   none       f606w       49.0 meb2     -78.0930 2007-09-30 06:52:15.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43680 normal
+* 43681 iu05020g  csii07273071605_1  uvis-2   none       f606w       97.0 meb2     -78.0930 2007-09-30 06:54:23.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43681 normal
+* 43682 iu05020h  csii07273072014_1  uvis-2   none       f606w       97.0 meb2     -77.9070 2007-09-30 06:57:19.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43682 normal
+* 43683 iu05020i  csii07273072423_1  uvis-2   none       f606w      145.0 meb2     -78.0930 2007-09-30 07:00:15.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43683 normal
+* 43684 iu05020k  csii07273072844_1  uvis-2   none       f606w      145.0 meb2     -78.0930 2007-09-30 07:04:00.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43684 normal
+* 43685 iu05020m  csii07273073305_1  uvis-2   none       f606w      158.0 meb2     -78.0930 2007-09-30 07:07:45.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43685 normal
+* 43686 iu05020o  csii07273073739_1  uvis-2   none       f606w      158.0 meb2     -78.0930 2007-09-30 07:11:43.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43686 normal
+* 43687 iu05020q  csii07273074211_1  uvis-2   none       f606w      170.0 meb2     -77.9070 2007-09-30 07:15:40.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43687 normal
+* 43688 iu05020s  csii07273074211_2  uvis-2   none       f606w      170.0 meb2     -78.0930 2007-09-30 07:19:49.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43688 normal
+* 43689 iu05020u  csii07273074653_1  uvis-2   none       f606w      182.0 meb2     -78.0930 2007-09-30 07:23:58.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43689 normal
+* 43690 iu05020w  csii07273074653_2  uvis-2   none       f606w      182.0 meb2     -78.0930 2007-09-30 07:28:19.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43690 normal
+* 43691 iu05020y  csii07273075134_1  uvis-2   none       f606w      194.0 meb2     -77.9070 2007-09-30 07:32:40.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43691 normal
+* 43692 iu050210  csii07273075134_2  uvis-2   none       f606w      194.0 meb2     -78.0930 2007-09-30 07:37:14.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43692 normal
+* 43693 iu050212  csii07273075627_1  uvis-2   none       f606w      206.0 meb2     -78.0930 2007-09-30 07:41:46.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43693 normal
+* 43694 iu050214  csii07273075627_2  uvis-2   none       f606w      206.0 meb2     -77.9070 2007-09-30 07:46:28.04 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43694 normal
+* 43695 iu050216  csii07273080733_1  uvis-2   none       f606w      218.0 meb2     -78.0930 2007-09-30 07:51:09.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43695 normal
+* 43696 iu050218  csii07273081111_1  uvis-2   none       f606w      218.0 meb2     -78.2791 2007-09-30 07:56:02.06 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43696 normal
+ 43697 iu05021a  csii07273083050_1  uvis-2   none       f606w        0.0 meb2     -77.9070 2007-09-30 08:01:07.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43697 bias
+?43698 iu05021b  csii07273083050_2  uvis-2   none       f606w       49.0 meb2     -78.0930 2007-09-30 08:03:11.05 abcd  1.5 2102 2070   2   2    0    0      1666.00       3       3       3       3 qth    flat              	43698 normal
+
+---> NOTE: extremely faint bowtie in 43698, if even there at all. Average of all cols shows very slight 'bowtie'
+           coarse measure of inside/outside bowtie: 1.00031
+
+No obvious bowties in the 3x3 images that followed (either via image ratios or plot of average of all cols)
+ 43699 iu05021c  csii07273083050_3  uvis-2   none       f606w        0.0 meb2     -78.2791 2007-09-30 08:05:29.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43699 bias
+ 43700 iu05021d  csii07273083534_1  uvis-2   none       f606w      135.0 meb2     -78.0930 2007-09-30 08:07:08.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43700 normal
+ 43701 iu05021f  csii07273083534_2  uvis-2   none       f606w      135.0 meb2     -78.0930 2007-09-30 08:10:46.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43701 normal
+ 43702 iu05021h  csii07273083534_3  uvis-2   none       f606w       20.0 meb2     -77.9070 2007-09-30 08:15:34.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43702 normal
+ 43703 iu05021i  csii07273083534_4  uvis-2   none       f606w      103.0 meb2     -78.0930 2007-09-30 08:16:45.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43703 normal
+ 43704 iu05021j  csii07273083534_5  uvis-2   none       f606w      103.0 meb2     -77.9070 2007-09-30 08:19:19.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43704 normal
+ 43705 iu05021k  csii07273085823_1  uvis-2   none       f606w       23.0 meb2     -78.2791 2007-09-30 08:23:35.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43705 normal
+ 43706 iu05021l  csii07273090035_1  uvis-2   none       f606w      119.0 meb2     -78.0930 2007-09-30 08:24:49.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43706 normal
+ 43707 iu05021m  csii07273090247_1  uvis-2   none       f606w      119.0 meb2     -78.0930 2007-09-30 08:27:38.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43707 normal
+ 43708 iu05021n  csii07273090504_1  uvis-2   none       f606w      238.0 meb2     -78.0930 2007-09-30 08:30:25.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43708 normal
+ 43709 iu05021p  csii07273090721_1  uvis-2   none       f606w      238.0 meb2     -78.2791 2007-09-30 08:35:09.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43709 normal
+ 43710 iu05021r  csii07273090944_1  uvis-2   none       f606w       22.0 meb2     -78.0930 2007-09-30 08:41:38.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43710 normal
+ 43711 iu05021s  csii07273091206_1  uvis-2   none       f606w       43.0 meb2     -77.9070 2007-09-30 08:42:50.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43711 normal
+ 43712 iu05021t  csii07273091433_1  uvis-2   none       f606w       43.0 meb2     -78.0930 2007-09-30 08:44:23.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43712 normal
+ 43713 iu05021u  csii07273092313_1  uvis-2   none       f606w       65.0 meb2     -78.0930 2007-09-30 08:45:56.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43713 normal
+ 43714 iu05021v  csii07273092313_2  uvis-2   none       f606w       65.0 meb2     -78.0930 2007-09-30 08:47:51.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43714 normal
+ 43715 iu05021w  csii07273092313_3  uvis-2   none       f606w       70.0 meb2     -78.0930 2007-09-30 08:49:46.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43715 normal
+ 43716 iu05021x  csii07273092313_4  uvis-2   none       f606w       70.0 meb2     -77.9070 2007-09-30 08:51:46.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43716 normal
+ 43717 iu05021y  csii07273092313_5  uvis-2   none       f606w       75.5 meb2     -78.2791 2007-09-30 08:53:46.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43717 normal
+ 43718 iu05021z  csii07273092313_6  uvis-2   none       f606w       75.5 meb2     -78.0930 2007-09-30 08:55:52.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43718 normal
+ 43719 iu050220  csii07273092313_7  uvis-2   none       f606w       81.0 meb2     -78.0930 2007-09-30 08:57:58.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43719 normal
+ 43720 iu050222  csii07273092313_8  uvis-2   none       f606w       81.0 meb2     -78.0930 2007-09-30 09:00:10.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43720 normal
+ 43721 iu050224  csii07273092313_9  uvis-2   none       f606w       86.0 meb2     -77.9070 2007-09-30 09:02:22.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43721 normal
+ 43722 iu050226  csii07273092313_10 uvis-2   none       f606w       86.0 meb2     -78.0930 2007-09-30 09:04:39.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43722 normal
+ 43723 iu050228  csii07273092313_11 uvis-2   none       f606w       92.0 meb2     -78.0930 2007-09-30 09:06:56.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43723 normal
+ 43724 iu05022a  csii07273092313_12 uvis-2   none       f606w       92.0 meb2     -78.0930 2007-09-30 09:09:19.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43724 normal
+ 43725 iu05022c  csii07273092313_13 uvis-2   none       f606w       97.0 meb2     -78.0930 2007-09-30 09:11:41.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43725 normal
+ 43726 iu05022e  csii07273092313_14 uvis-2   none       f606w       97.0 meb2     -77.9070 2007-09-30 09:14:08.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43726 normal
+ 43727 iu05022g  csii07273092313_15 uvis-2   none       f606w        0.0 meb2     -78.2791 2007-09-30 09:16:44.04 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43727 bias
+ 43728 iu05022h  csii07273092313_16 uvis-2   none       f606w        0.0 meb2     -77.9070 2007-09-30 09:17:25.06 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43728 bias
+ 43729 iu05022i  csii07273092313_17 uvis-2   none       f606w       22.0 meb2     -78.0930 2007-09-30 09:18:59.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43729 normal
+ 43730 iu05022j  csii07273092313_18 uvis-2   none       f606w       22.0 meb2     -77.9070 2007-09-30 09:20:43.05 abcd  1.5 1402 1380   3   3    0    0      1666.00       3       3       3       3 qth    flat              	43730 normal
+...
+ 43924 iaaabbcc  csii07275004923_1  uvis-2   none       none         0.5 meb1     -25.9167 2007-10-02 00:44:37.06 ad    1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3       undefined undefined	43924 normal
+ 43963 iaa0bbcc  csii07275135519_1  uvis-2   tungsten-1 f467m       20.0 meb1     -78.6512 2007-10-02 13:50:52.06 ad    1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3 undefi undefined         	43963 normal
+ 43964 iaa0bbcc  csii07275140658_1  uvis-2   tungsten-1 f467m       20.0 meb1     -78.0930 2007-10-02 14:02:33.06 ad    1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3 undefi undefined         	43964 normal
+ 43965 iaa0bbcc  csii07275141708_1  uvis-2   tungsten-1 f814w        1.9 meb1     -78.4651 2007-10-02 14:14:42.05 abcd  1.5 4206 4140   1   1    0    0      0.00000       3       3       3       3 undefi undefined         	43965 normal
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
