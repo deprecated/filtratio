@@ -119,11 +119,11 @@ And that's it. (Do need to be in right virtual env, or at least set the path to 
   python setup.py test
   #+END_SRC
   + This requires some stuff in =setup.py= but that is all sorted now.
-** TODO [0/4] More sophisticated tests
-+ [ ] Make sure there is only one assert per function
-+ [ ] Learn how to use fixtures
+** TODO [3/4] More sophisticated tests
++ [X] Try to use only one assert per function
++ [X] Learn how to use fixtures
   + also [[http://pytest.org/latest/yieldfixture.html#yieldfixture][yield fixture mechanism]]
-+ [ ] Learn how to use parameterized tests
++ [X] Learn how to use parameterized fixtures
 + [ ] Time the tests
 
 ** STARTED [2/3] Testing wfc3_utils
