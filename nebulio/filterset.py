@@ -1,4 +1,3 @@
-# -*- eval: (pyvenv-activate (expand-file-name "~/anaconda/envs/py27")) -*-
 from __future__ import print_function
 
 """A set of filters that is used to determine an emission line ratio

@@ -14,13 +14,51 @@ CLOSED: [2014-08-06 Wed 13:35]
 *** Allow mixing of different instruments
 
 *** Write some tests
+:LOGBOOK:
+CLOCK: [2014-08-13 Wed 12:19]--[2014-08-13 Wed 13:04] =>  0:45
+:END:
 + use py.test
 + Useful docs:
   + [[http://astropy.readthedocs.org/en/latest/development/testguide.html][Astropy testing guidelines]]
-  + 
+  +
+**** DONE [2/2] How to run the tests
+CLOSED: [2014-08-14 Thu 22:52]
+:LOGBOOK:
+CLOCK: [2014-08-14 Thu 17:57]--[2014-08-14 Thu 22:52] =>  4:55
+:END:
++ Rule #1 :: Don't try just running them in the tests/ folder
+  + This can give on Python 3
+    #+BEGIN_EXAMPLE
+    SystemError: Parent module '' not loaded, cannot perform relative import
+    #+END_EXAMPLE
+  + Or on Python 2
+    #+BEGIN_EXAMPLE
+    ValueError: Attempted relative import in non-package
+    #+END_EXAMPLE
+  + So the problem is partly that I was trying to use relative imports, which is rather tricky
++ Rule #2 :: We can run the tests by hand using something like
+  #+BEGIN_SRC sh
+  ~/anaconda/envs/py27/bin/python -m nebulio.tests.test_synphot
+  #+END_SRC
+  + But this relies on there being a main script in the test file, which we really want to avoid, so I have now removed it
+  + *Meaning this method doesn't work any more* 
++ [X] Rule #3 :: We can run py.test semi-automatically like this
+  #+BEGIN_EXAMPLE
+  (py27)iris:Nebulio will$ py.test
+  #+END_EXAMPLE
+  Note that we have to be in the right virtual environment, since this package does not work with python 3
++ [X] Rule #4 :: Finally, we should also be able to run it like this
+  #+BEGIN_SRC sh
+  python setup.py test
+  #+END_SRC
+  + This requires some stuff in =setup.py= but that is all sorted now. 
+
 ** Future plans
 *** Greater variety of synphot observation modes
-* [4/7] Project Management Scaffolding
+* [5/8] Project Management Scaffolding
+:LOGBOOK:
+CLOCK: [2014-08-13 Wed 13:04]--[2014-08-13 Wed 17:57] =>  4:53
+:END:
 I am implementing most of Jeff Knupp's [[http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/][recommendations]] for project
   management:
 - [X] YES: setuptools
@@ -28,11 +66,14 @@ I am implementing most of Jeff Knupp's [[http://www.jeffknupp.com/blog/2013/08/1
 - [X] NO: git-flow - my package just seems too small to bother with that yet
 - [ ] SORT-OF: virtualenv - I'm using anaconda
   - Still need to make a virtual environment
-- [-] YES py.test
-  - at least, I intend to
+- [X] YES py.test
+  - Now working! [2014-08-14 Thu]
 - [X] YES sphinx
 - [ ] MAYBE ReadTheDocs
   - once I have the docs in better shape
+- [ ] sort out relative imports
+  - AAARGH!
+  - [ ] try to follow recommendations [[http://guide.python-distribute.org/creation.html][here]]
 
 
 * Interface with pysynphot
@@ -47,6 +88,9 @@ I am implementing most of Jeff Knupp's [[http://www.jeffknupp.com/blog/2013/08/1
 + Others (e.g., ACS) use electrons/s
   
 ** TODO How to access the instrument-dependent normalization
+:LOGBOOK:
+CLOCK: [2014-08-13 Wed 10:30]--[2014-08-13 Wed 10:50] =>  0:20
+:END:
 + This is important when using a filterset that combines, e.g., ACS
   and WFPC2 observations
 + I think, this is is just the the pixel area
@@ -69,7 +113,7 @@ CLOCK: [2014-08-04 Mon 11:14]--[2014-08-04 Mon 13:06] =>  1:52
     + Jeff Knup's [[http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/][instructions]] on how to use autodoc
 ** TODO [1/6] Subtasks towards getting the docs sorted
 :LOGBOOK:
-CLOCK: [2014-08-04 Mon 13:43]
+CLOCK: [2014-08-04 Mon 13:43]--[2014-08-04 Mon 14:43] =>  1:00
 CLOCK: [2014-08-04 Mon 13:06]--[2014-08-04 Mon 13:43] =>  0:37
 :END:
 + [X] Get basic sphinx autodoc functionality working
