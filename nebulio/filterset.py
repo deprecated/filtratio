@@ -64,9 +64,26 @@ class Bandpass(object):
         ----------
         emline : :class:`EmissionLine`
 
+        Note
+        ----
+        Will return an array of values in the case where `emline` is a multiplet. 
+
         """
         correction = self.T_adjustments.get((emline.wavid, self.obsmode), 1.0)
-        return correction*np.interp(emline.wave, self.wave, self.T)
+        if emline.fwhm_angstrom is None:
+            # Original delta function method
+            return correction*np.interp(emline.wave, self.wave, self.T)
+        else:
+            ### TODO - check this works
+            result = []
+            clear_filter = pysynphot.UniformTransmission(1.0)
+            for wav, strength in zip(emline.wave, emline.intensity):
+                gauss = pysynphot.GaussianSource(1e-15*strength, wav, emline.fwhm_angstrom)
+                result.append(
+                    (pysynphot.Observation(gauss, self._synphot_bp) /
+                     pysynphot.Observation(gauss, clear_filter))
+                )
+            return correction*np.array(result)
 
     def Wtwid(self, emline, kji=1.0):
         """Find W-twiddle for a given line of wavelength wav0
@@ -102,9 +119,10 @@ def _split_ids(lineid):
 
 
 class EmissionLine(object):
+    """A single line, or a multiplet with known intensity ratio"""
     velocity = 0.0
 
-    def __init__(self, lineid, velocity=None):
+    def __init__(self, lineid, velocity=None, fwhm_kms=None):
         self.lineid = lineid
         self.species, self.wavid = _split_ids(lineid)
         # Rest wavelength(s) in air
@@ -121,7 +139,12 @@ class EmissionLine(object):
             self.velocity = self.__class__.velocity
         # Observed wavelength in vacuum
         self.wave = self.wav0 * (1.0 + self.velocity/LIGHTSPEED)
-
+        # Line width
+        self.fwhm_kms = fwhm_kms
+        if fwhm_kms:
+            self.fwhm_angstrom = self.wave * fwhm_kms / LIGHTSPEED
+        else:
+            self.fwhm_angstrom = None
 
 class Filterset(object):
     """A set of three emission line filters for measuring a line ratio"""

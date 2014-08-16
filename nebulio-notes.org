@@ -69,6 +69,10 @@ CLOCK: [2014-08-13 Wed 10:30]--[2014-08-13 Wed 10:50] =>  0:20
 + I think, this is is just the the pixel area
 + Everything else is already folded into the bandpass throughput I think
 
+** TODO Using =pysynphot.GaussianSource= instead of delta function
++ Currently we simply interpolate the throughput at the line center
++ A better way to do it would be to use a Gaussian profile of a suitable width, and to integrate the profile with the bandpass throughput
++ This can be done by making a =pysynphot.Observation= and looking at the count rates
 
 * DONE Making sure we are up to date with CDBS
 CLOSED: [2014-08-15 Fri 14:47]
@@ -80,7 +84,7 @@ CLOCK: [2014-08-15 Fri 13:37]--[2014-08-15 Fri 14:47] =>  1:10
   + I am downloading [[http://www.stsci.edu/ftp/cdbs/tarfiles/synphot1.tar.gz][synphot1.tar.gz]], which I think is all we need.
 + Yep, now installed in =~/Work/CDBS=
 + Other data files are not here yet - synphot5 is taking for ever
-+ [ ] How are we going to keep up to date with these files in the future
++ [ ] How are we going to keep up to date with these files in the future?
 
 * Implementation of the tests
 ** DONE How to run the tests
@@ -122,8 +126,9 @@ And that's it. (Do need to be in right virtual env, or at least set the path to 
 ** TODO [3/4] More sophisticated tests
 + [X] Try to use only one assert per function
 + [X] Learn how to use fixtures
-  + also [[http://pytest.org/latest/yieldfixture.html#yieldfixture][yield fixture mechanism]]
+  + also [[http://pytest.org/latest/yieldfixture.html#yieldfixture][yield fixture mechanism]] (Not yet)
 + [X] Learn how to use parameterized fixtures
+  + these use 
 + [ ] Time the tests
 
 ** STARTED [2/3] Testing wfc3_utils
