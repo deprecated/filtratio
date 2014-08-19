@@ -60,6 +60,9 @@ class Bandpass(object):
     def Ti(self, emline):
         """Filter transmission at the wavelength of an emission line
 
+        If the `emline` has a finite width, then this will be the average
+        transmission over a Gaussian line profile
+
         Parameters
         ----------
         emline : :class:`EmissionLine`
@@ -79,10 +82,13 @@ class Bandpass(object):
             clear_filter = pysynphot.UniformTransmission(1.0)
             for wav, strength in zip(emline.wave, emline.intensity):
                 gauss = pysynphot.GaussianSource(1e-15*strength, wav, emline.fwhm_angstrom)
-                result.append(
-                    (pysynphot.Observation(gauss, self._synphot_bp) /
-                     pysynphot.Observation(gauss, clear_filter))
-                )
+                counts = pysynphot.Observation(gauss,
+                                               self._synphot_bp).countrate()
+                # Explicitly pass binset for uniform transmission to prevent warning
+                clearcounts = pysynphot.Observation(gauss,
+                                                    clear_filter,
+                                                    binset=gauss.wave).countrate()
+                result.append(counts/clearcounts)
             return correction*np.array(result)
 
     def Wtwid(self, emline, kji=1.0):
