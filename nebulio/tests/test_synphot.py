@@ -15,6 +15,10 @@ wfc3_filters_to_test = [
     "FQ575N", "FQ672N", "FQ674N"
 ]
 
+multiplets_to_test = [
+    "[N II] 6583", "[O III] 5007"
+]
+
 def plot_compare_bandpass(bp0, bp, fn):
     fig, ax = plt.subplots()
     ax.plot(bp0.wave, bp0.T, '-', label='legacy')
@@ -41,6 +45,18 @@ def bandpass_by_both_methods(request):
     return (bp0, bp, fn)
 
 
+@pytest.fixture(scope="module", params=wfc3_filters_to_test)
+def wfc3_bandpass(request):
+    """Fixture to read in the pysynphot bandpass for a WFC3 filter"""
+    return nebulio.Bandpass(','.join(['wfc3', 'uvis1', request.param]))
+
+
+@pytest.fixture(scope="module", params=multiplets_to_test)
+def emission_line_multiplet(request):
+    lineid = request.param
+    return nebulio.EmissionLine(lineid, velocity=30.0, fwhm_kms=20.0)
+
+
 def test_version():
     """Silly test just to test that tests work"""
     assert nebulio.__version__ == "0.1a1", nebulio.__version__
@@ -49,7 +65,21 @@ def test_wfc3_utils(bandpass_by_both_methods):
     """Compare results from `nebulio.filterset` with results from wfc3_utils"""
 
     bp0, bp, fn = bandpass_by_both_methods
+    allowed_tolerance = 0.015
+    assert abs(bp0.Tm - bp.Tm) < allowed_tolerance, "Tm({}) = {}, {}".format(fn, bp0.Tm, bp.Tm)
 
-    assert abs(bp0.Tm - bp.Tm) < 3e-3, "Tm({}) = {}, {}".format(fn, bp0.Tm, bp.Tm)
+def test_multiplet(emission_line_multiplet):
+    em = emission_line_multiplet
+    assert em.multiplicity == 3
+
+def test_gaussian_multiplet(emission_line_multiplet, wfc3_bandpass):
+    """This is testing that we can find the transmission at the line
+    wavelength for each member of the multiplet
+
+    """
+    em = emission_line_multiplet
+    bp = wfc3_bandpass
+    Ti = bp.Ti(em)
+    assert len(Ti) == 3
 
     

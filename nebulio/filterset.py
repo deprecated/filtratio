@@ -80,8 +80,8 @@ class Bandpass(object):
             ### TODO - check this works
             result = []
             clear_filter = pysynphot.UniformTransmission(1.0)
-            for wav, strength in zip(emline.wave, emline.intensity):
-                gauss = pysynphot.GaussianSource(1e-15*strength, wav, emline.fwhm_angstrom)
+            for wav, strength, fwhm in zip(emline.wave, emline.intensity, emline.fwhm_angstrom):
+                gauss = pysynphot.GaussianSource(1e-15*strength, wav, fwhm)
                 counts = pysynphot.Observation(gauss,
                                                self._synphot_bp).countrate()
                 # Explicitly pass binset for uniform transmission to prevent warning
@@ -109,13 +109,22 @@ air_rest_wavelengths = {
     "H I 6563": [6562.79],
     "[N II] 6583": [6583.45, 6548.05, 6527.23],
     "[S II] 6716": [6716.44],
-    "[S II] 6731": [6730.816]
+    "[S II] 6731": [6730.816],
+    "[S II] 6724": [6716.44, 6730.816],
 }
 
 # Source: NIST
 multiplet_strengths = {
+    #
+    # These share an upper level, so should be fixed
+    # 
     "[O III] 5007": [2.918, 1.0, 3.88e-4],
     "[N II] 6583": [2.963, 1.0, 5.33e-4],
+    #
+    # These vary with physical conditions
+    #
+    # [S II] ratio varies with density between ~1.1 -> ~0.4
+    "[S II] 6724": [1.0, 1.0],
 }
 
 
@@ -147,7 +156,8 @@ class EmissionLine(object):
         self.wave = self.wav0 * (1.0 + self.velocity/LIGHTSPEED)
         # Line width
         self.fwhm_kms = fwhm_kms
-        if fwhm_kms:
+        if fwhm_kms is not None:
+            # This will give an array for multiplets
             self.fwhm_angstrom = self.wave * fwhm_kms / LIGHTSPEED
         else:
             self.fwhm_angstrom = None
@@ -155,12 +165,13 @@ class EmissionLine(object):
 class Filterset(object):
     """A set of three emission line filters for measuring a line ratio"""
 
-    def __init__(self, bpnames, lineids, velocity=0.0):
+    def __init__(self, bpnames, lineids, velocity=0.0, fwhm_kms=None):
         assert len(bpnames) == 3, 'Need to specify exactly 3 filters'
         assert len(lineids) == 2, 'Need to specify exactly 2 emission lines'
         self.bpnames = bpnames
         self.lineids = lineids
-        self.emlines = [EmissionLine(lineid, velocity) for lineid in lineids]
+        self.emlines = [EmissionLine(lineid, velocity, fwhm_kms)
+                        for lineid in lineids]
         self.bandpasses = [Bandpass(longname) for longname in bpnames]
         self._calculate_coefficients()
 
