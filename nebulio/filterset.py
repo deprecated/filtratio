@@ -77,10 +77,10 @@ class Bandpass(object):
             # Original delta function method
             return correction*np.interp(emline.wave, self.wave, self.T)
         else:
-            ### TODO - check this works
             result = []
             clear_filter = pysynphot.UniformTransmission(1.0)
-            for wav, strength, fwhm in zip(emline.wave, emline.intensity, emline.fwhm_angstrom):
+            for wav, strength, fwhm in zip(emline.wave, emline.intensity,
+                                           emline.fwhm_angstrom):
                 gauss = pysynphot.GaussianSource(1e-15*strength, wav, fwhm)
                 counts = pysynphot.Observation(gauss,
                                                self._synphot_bp).countrate()
@@ -98,6 +98,32 @@ class Bandpass(object):
         """
         return kji*self.Tm*self.Wj/self.Ti(emline)
 
+
+
+class CompositeBandpass(Bandpass):
+    """A composite bandpass that is the sum of two or more filters"""
+
+    def __init__(self, obsmodes):
+        self.bandpasses = [Bandpass(obsmode) for obsmode in obsmodes]
+        # Create a wavelength array that is a superset of all the
+        # wavelengths used in the individual bandpasses
+        self.wave = np.sort(list(set(
+            np.concatenate([bp.wave for bp in self.bandpasses]))))
+        # And sum all the bandpass transmissions interpolated onto this array
+        self.T = np.sum([np.interp(self.wave, bp.wave, bp.T, left=0.0, right=0.0)
+                         for bp in self.bandpasses], axis=0)
+        # Maximum and rectangular width are calculated using the
+        # interpolated transmission
+        self.Tm = self.T.max()
+        self.Wj = np.trapz(self.T, self.wave)/self.Tm
+        # Central wavelength is simply the average of the individual filters
+        self.wav0 = np.mean([bp.wav0 for bp in self.bandpasses])
+    
+    def Ti(self, emline):
+        # Line transmission is calulated by summing transmission
+        # through individual filters.  This means that the corrections
+        # through T_adjustments are automatically picked up
+        return np.sum([bp.Ti(emline) for bp in self.bandpasses])
 
 # Accurate rest wavelengths (Source: NIST)
 air_rest_wavelengths = {
@@ -152,6 +178,8 @@ class EmissionLine(object):
         if velocity is None:
             # Allow velocity to be set at the class level for all lines
             self.velocity = self.__class__.velocity
+        else:
+            self.velocity = velocity
         # Observed wavelength in vacuum
         self.wave = self.wav0 * (1.0 + self.velocity/LIGHTSPEED)
         # Line width

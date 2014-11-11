@@ -69,11 +69,22 @@ CLOCK: [2014-08-13 Wed 10:30]--[2014-08-13 Wed 10:50] =>  0:20
 + I think, this is is just the the pixel area
 + Everything else is already folded into the bandpass throughput I think
 
-** TODO Using =pysynphot.GaussianSource= instead of delta function
+** DONE Using =pysynphot.GaussianSource= instead of delta function
+CLOSED: [2014-11-05 Wed 09:06]
 + Currently we simply interpolate the throughput at the line center
 + A better way to do it would be to use a Gaussian profile of a suitable width, and to integrate the profile with the bandpass throughput
 + This can be done by making a =pysynphot.Observation= and looking at the count rates
-
+** STARTED How to deal with composite filters
+:LOGBOOK:  
+CLOCK: [2014-11-10 Mon 10:30]
+CLOCK: [2014-11-05 Wed 17:32]--[2014-11-05 Wed 18:25] =>  0:53
+:END:      
++ These are the sum of the bandpasses of two or more filters
++ Initial plan is to subclass Bandpass with CompositeBandpass
+  + We have list of individual bandpasses in =self.bandpasses=
+  + The =Ti= method is easy to deal with: just add them up
+    + But not clear that this is the best approach, although it does deal with the ad hoc adjustments automatically
+  + Leave it for the moment, but we also need to separately calculate other properties: wave, T, T, Wj, wav0
 * DONE Making sure we are up to date with CDBS
 CLOSED: [2014-08-15 Fri 14:47]
 :LOGBOOK:
@@ -131,7 +142,8 @@ And that's it. (Do need to be in right virtual env, or at least set the path to 
   + these use 
 + [ ] Time the tests
 
-** STARTED [2/3] Testing wfc3_utils
+** DONE [3/3] Testing wfc3_utils
+CLOSED: [2014-11-05 Wed 09:04]
 :LOGBOOK:
 - State "WAITING"    from ""           [2014-08-15 Fri 13:38] \\
   Need to update the CDBS database first
@@ -143,7 +155,9 @@ And that's it. (Do need to be in right virtual env, or at least set the path to 
   + See [[https://pythonhosted.org/setuptools/pkg_resources.html][here]] and [[http://peak.telecommunity.com/DevCenter/PythonEggs#accessing-package-resources][here]]
 + [X] Test that the tests work
 + [X] Test that the filter parameters agree
-+ [ ] Test that the alpha, beta, gamma agree
+  + they don't quite, but that is because the data has changed
++ [X] Test that the alpha, beta, gamma agree
+  + again, the differences are probably down to different data
 
 
 * Implementation of Documentation
