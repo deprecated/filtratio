@@ -74,17 +74,24 @@ CLOSED: [2014-11-05 Wed 09:06]
 + Currently we simply interpolate the throughput at the line center
 + A better way to do it would be to use a Gaussian profile of a suitable width, and to integrate the profile with the bandpass throughput
 + This can be done by making a =pysynphot.Observation= and looking at the count rates
-** STARTED How to deal with composite filters
+** STARTED [2/4] How to deal with composite filters
 :LOGBOOK:  
-CLOCK: [2014-11-10 Mon 10:30]
+CLOCK: [2014-11-11 Tue 09:30]--[2014-11-11 Tue 12:00] =>  2:30
+CLOCK: [2014-11-10 Mon 10:30]--[2014-11-10 Mon 12:44] =>  2:14
 CLOCK: [2014-11-05 Wed 17:32]--[2014-11-05 Wed 18:25] =>  0:53
 :END:      
 + These are the sum of the bandpasses of two or more filters
 + Initial plan is to subclass Bandpass with CompositeBandpass
-  + We have list of individual bandpasses in =self.bandpasses=
-  + The =Ti= method is easy to deal with: just add them up
-    + But not clear that this is the best approach, although it does deal with the ad hoc adjustments automatically
-  + Leave it for the moment, but we also need to separately calculate other properties: wave, T, T, Wj, wav0
++ We have list of individual bandpasses in =self.bandpasses=
++ [X] The =Ti= method is easy to deal with: just add them up
+  + But not clear that this is the best approach, although it does deal with the ad hoc adjustments automatically
++ [X] Leave it for the moment, but we also need to separately calculate other properties: wave, T, T, Wj, wav0
++ [ ] How to deal with composite filters in =Filterset=?
+  + Do we want to have a short name for common composite filters?
++ [-] Possibility of adjusting the weight of each constituent filter
+  + This could make the composite [S II] filter be less sensitive to the doublet ratio if we contrived the transmission to be the same for 6716 as for 6731
+  + Could also be used to make composite difference filters by setting one of the weights to be negative
+
 * DONE Making sure we are up to date with CDBS
 CLOSED: [2014-08-15 Fri 14:47]
 :LOGBOOK:

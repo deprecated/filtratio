@@ -105,6 +105,7 @@ class CompositeBandpass(Bandpass):
 
     def __init__(self, obsmodes):
         self.bandpasses = [Bandpass(obsmode) for obsmode in obsmodes]
+        self.fname = "+".join([bp.fname for bp in self.bandpasses])
         # Create a wavelength array that is a superset of all the
         # wavelengths used in the individual bandpasses
         self.wave = np.sort(list(set(
@@ -190,6 +191,14 @@ class EmissionLine(object):
         else:
             self.fwhm_angstrom = None
 
+def _bandpass(arg):
+    """This is a bit of a hack to give either a CompositeBandpass or a
+    normal Bandpass depending on if the argument is a list or not"""
+    if isinstance(arg, list):
+        return CompositeBandpass(arg)
+    else:
+        return Bandpass(arg)
+
 class Filterset(object):
     """A set of three emission line filters for measuring a line ratio"""
 
@@ -200,7 +209,7 @@ class Filterset(object):
         self.lineids = lineids
         self.emlines = [EmissionLine(lineid, velocity, fwhm_kms)
                         for lineid in lineids]
-        self.bandpasses = [Bandpass(longname) for longname in bpnames]
+        self.bandpasses = [_bandpass(longname) for longname in bpnames]
         self._calculate_coefficients()
 
     def wavlimits(self):
